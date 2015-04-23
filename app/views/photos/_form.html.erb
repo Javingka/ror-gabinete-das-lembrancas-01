@@ -14,7 +14,7 @@
       <% end %>
     
       <span class="picture">
-        <%= f.file_field :picture %>
+        <%= f.file_field :picture, accept: 'image/jpg,image/jpeg,image/gif,image/png' %>
       </span>
     
       <%= f.hidden_field :gabinete_object_id, :value => @objeto.id if !@objeto.nil? %>
@@ -26,3 +26,13 @@
     <% end %>
   </div>
 </div>
+
+
+<script type="text/javascript">
+  $('#photo_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Oi mono!!.. O que foi??  ...O tamanho máximo para o arquivo é de 5MB. Escolhe um menor e vai pular nos galhos');
+    }
+  });
+</script>
