@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @gabinete_object.nome %>
+</p>
+
+<p>
+  <strong>Descripcao:</strong>
+  <%= @gabinete_object.descripcao %>
+</p>
+
+<p> Cant de fotos <%= @fotos.count %>
+</p>
+
+
+<%= link_to 'Edit', edit_gabinete_object_path(@gabinete_object) %> |
+<%= link_to 'Back', gabinete_objects_path %>

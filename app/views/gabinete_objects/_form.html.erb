@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@gabinete_object) do |f| %>
+      <% if @gabinete_object.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@gabinete_object.errors.count, "error") %> prohibited this gabinete_object from being saved:</h2>
+    
+          <ul>
+          <% @gabinete_object.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="field">
+        <%= f.label :nome %><br>
+        <%= f.text_field :nome, placeholder: 'O que objeto é?' %>
+      </div>
+
+      <%= f.hidden_field :exhibit_id, :value => @exhibit.id if !@exhibit.nil? %>
+      <div class="field">
+        <%= f.label :descripcao %><br>
+        <%= f.text_area :descripcao, placeholder: 'É so uma descipção basico do objeto, não é a historia' %>
+      </div>
+      <div class="actions">
+        <%= f.submit  class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>

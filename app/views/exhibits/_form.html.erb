@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@exhibit) do |f| %>
+      <% if @exhibit.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@exhibit.errors.count, "error") %> prohibited this exhibit from being saved:</h2>
+    
+          <ul>
+          <% @exhibit.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="field">
+        <%= f.label :cidade %><br>
+        <%= f.text_field :cidade %>
+      </div>
+      <div class="field">
+        <%= f.label :datainicio %><br>
+        <%= f.text_field :datainicio %>
+      </div>
+      <div class="field">
+        <%= f.label :datafim %><br>
+        <%= f.text_field :datafim %>
+      </div>
+      <div class="field">
+        <%= f.label :local %><br>
+        <%= f.text_field :local %>
+      </div>
+      <div class="actions">
+        <%= f.submit params[:action]+' exposição', class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>
