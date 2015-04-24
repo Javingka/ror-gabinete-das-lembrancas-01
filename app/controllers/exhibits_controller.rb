@@ -1,15 +1,20 @@
 class ExhibitsController < ApplicationController
-  before_action :set_exhibit, only: [:show, :edit, :update, :destroy]
+  before_action :set_exhibit, only: [:show, :edit, :update, :destroy, :index_edition]
 
   # GET /exhibits
   # GET /exhibits.json
   def index
     @exhibits = Exhibit.all
   end
+  
+  def creation
+    @exhibits = Exhibit.all
+  end
 
   # GET /exhibits/1
   # GET /exhibits/1.json
   def show
+    @exhibits = Exhibit.all
   end
 
   # GET /exhibits/new
@@ -20,7 +25,6 @@ class ExhibitsController < ApplicationController
   # GET /exhibits/1/edit
   def edit
     @gabinete_object = @exhibit.gabinete_objects.build
-    def_actual_exhibit(@exhibit)
   end
 
   # POST /exhibits
@@ -66,7 +70,7 @@ class ExhibitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exhibit
-      @exhibit = Exhibit.find(params[:id])
+      @exhibit = Exhibit.find(params[:id]) 
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

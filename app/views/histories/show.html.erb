@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Memoria:</strong>
+  <%= @history.memoria %>
+</p>
+
+<p>
+  <strong>Gabinete object:</strong>
+  <%= @history.gabinete_object %>
+</p>
+
+<%= link_to 'Edit', edit_history_path(@history) %> |
+<%= link_to 'Back', histories_path %>

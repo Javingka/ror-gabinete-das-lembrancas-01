@@ -18,6 +18,8 @@
       </span>
     
       <%= f.hidden_field :gabinete_object_id, :value => @objeto.id if !@objeto.nil? %>
+      <%= f.hidden_field :exhibit_id        , :value => @exhibit.id if !@exhibit.nil? %>
+
       <div class="field">
       </div>
       <div class="actions">

@@ -1,12 +1,26 @@
-<h1> Nueva Foto para <%= @objeto.nome %>  </h1>
+<% obj = exh = '' %>
+<% if !@objeto.nil? %>
+  <% obj = @objeto.nome %>
+<% end %>
+<% if !@exhibit.nil? %>
+  <% exh = @exhibit.cidade %>
+<% end %>
+
+<h1> Nueva Foto </h1>
+<h2> <%= exh %>  </h2>
+<h2> <%= obj %>  </h2>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+    <% if obj != '' %>
     <p>
       Descripción del objeto: <%= @objeto.descripcao %>
     </p>
+  <% end %>
   </div>
 </div>
     <%= render 'form' %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= link_to 'Back' , photos_path , class: 'btn btn-secundary'%>

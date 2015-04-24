@@ -23,9 +23,22 @@
         <%= f.label :descripcao %><br>
         <%= f.text_area :descripcao, placeholder: 'É so uma descipção basico do objeto, não é a historia' %>
       </div>
+
+      <div class="field">
+        <%= f.label 'Pessoa' %><br>
+        <%= f.text_field :pessoa, placeholder: 'Nome da pessoa dona do objeto' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :idade %>
+        <%= f.text_field :idade, placeholder: 'Idade da pessoa' %>
+      </div>
+
       <div class="actions">
         <%= f.submit  class: "btn btn-primary"%>
       </div>
+
+      <p class="text-info"> *A historia e as imagens são criadas depois de criar o objeto </p>
     <% end %>
   </div>
 </div>

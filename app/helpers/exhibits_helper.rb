@@ -1,5 +1,9 @@
 module ExhibitsHelper
-  
+ 
+  def get_exposicoes
+    Exhibit.all
+  end
+
   def def_actual_exhibit (exh)
     session[:exh_id] = exh.id
 #    @actO = GabineteObject.find_by(id: obj.id)

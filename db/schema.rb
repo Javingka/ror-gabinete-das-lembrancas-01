@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423151237) do
+ActiveRecord::Schema.define(version: 20150423201741) do
 
   create_table "exhibits", force: :cascade do |t|
     t.string   "cidade"
@@ -26,15 +26,28 @@ ActiveRecord::Schema.define(version: 20150423151237) do
     t.string  "nome"
     t.text    "descripcao"
     t.integer "exhibit_id"
+    t.string  "pessoa"
+    t.string  "idade"
   end
 
   add_index "gabinete_objects", ["exhibit_id"], name: "index_gabinete_objects_on_exhibit_id"
 
+  create_table "histories", force: :cascade do |t|
+    t.text     "memoria"
+    t.integer  "gabinete_object_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "histories", ["gabinete_object_id"], name: "index_histories_on_gabinete_object_id"
+
   create_table "photos", force: :cascade do |t|
     t.string  "picture"
     t.integer "gabinete_object_id"
+    t.integer "exhibit_id"
   end
 
+  add_index "photos", ["exhibit_id"], name: "index_photos_on_exhibit_id"
   add_index "photos", ["gabinete_object_id"], name: "index_photos_on_gabinete_object_id"
 
 end

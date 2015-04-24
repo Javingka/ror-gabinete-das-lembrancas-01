@@ -8,6 +8,10 @@ class GabineteObjectsController < ApplicationController
     @exh 
   end
 
+  def creation
+    @gabinete_objects = GabineteObject.all
+  end
+
   # GET /gabinete_objects/1
   # GET /gabinete_objects/1.json
   def show
@@ -75,6 +79,6 @@ class GabineteObjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gabinete_object_params
-      params.require(:gabinete_object).permit(:nome, :descripcao )
+      params.require(:gabinete_object).permit(:nome, :descripcao, :pessoa, :idade )
     end
 end

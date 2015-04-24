@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top ">
+  <div class="container">
+    <% logo = image_tag("monos_minilogo.png", :alt => "infinitos monos", :class => "logo", size:'50x50') %>
+  	<%= link_to logo, root_path , id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Inicio",  root_path , class:"page-scroll", method: :get%></li>
+        <li><%= link_to "O projeto", '#projeto', class:"page-scroll" %></li>
+        <li><%= link_to "Infinitos Monos",  '#infinitos' , class:"page-scroll"%></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toogle" data-toggle="dropdown">
+            Exposições<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <% exps = get_exposicoes %>
+            <% exps.each do |exhibit| %>
+              <li>  <%= link_to exhibit.cidade, exhibit %> </li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

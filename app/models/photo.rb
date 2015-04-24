@@ -1,6 +1,8 @@
 class Photo < ActiveRecord::Base
   belongs_to :gabinete_object
-  validates :gabinete_object, presence: true
+  belongs_to :exhibit
+#  validates :exhibit, presence: true
+#  validates :gabinete_object, presence: true
   mount_uploader :picture, PictureUploader
   validate :picture_size
 

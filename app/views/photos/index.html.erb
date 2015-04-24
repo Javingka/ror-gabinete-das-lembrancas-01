@@ -1,6 +1,8 @@
-<p id="notice"><%= notice %></p>
+<div class="container bg-info">
+  <p id="notice"><%= notice %></p>
+</div>
 
-<h1>Listing Photos</h1>
+<h1>Lista de imagenes</h1>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -17,10 +19,14 @@
       <tbody>
         <% @photos.each do |photo| %>
           <% obj = GabineteObject.find_by(id: photo.gabinete_object_id) %>
-          <% exp = Exhibit.find_by(id: obj.exhibit_id) %>
+          <% exp = Exhibit.find_by(id: photo.exhibit_id) %>
           <tr>
             <td><%= photo.picture %></td>
-            <td><%= link_to_if !obj.nil?, obj.nome, gabinete_object_path(obj)  , class: 'btn btn-link' %> </td>
+            <% if !obj.nil? %>
+            <td><%= link_to obj.nome, gabinete_object_path(obj)  , class: 'btn btn-link' %> </td>
+          <% else %>
+            <td> </td>
+          <% end %>
             <td><%= link_to_if !exp.nil?, exp.cidade, exhibit_path(exp) , class: 'btn btn-link'%> </td>
             <td><%= link_to 'Show', photo %></td>
             <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
@@ -33,4 +39,3 @@
 </div>
 <br>
 
-<%= link_to 'New Photo', new_photo_path %>

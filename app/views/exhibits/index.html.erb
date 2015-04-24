@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="container bg-info">
+  <p id="notice"><%= notice %></p>
+</div>
 
 <h1>Lista de Exposições</h1>
 
@@ -22,6 +24,7 @@
             <td><%= exhibit.datainicio %></td>
             <td><%= exhibit.datafim %></td>
             <td><%= exhibit.local %></td>
+            <td><%= link_to 'Sube foto', new_photo_path(:exhibit => exhibit), class:'btn btn-success' %> </td>
             <td><%= link_to 'Show', exhibit %></td>
             <td><%= link_to 'Edit', edit_exhibit_path(exhibit) %></td>
             <td><%= link_to 'Destroy', exhibit, method: :delete, data: { confirm: 'Are you sure?' } %></td>

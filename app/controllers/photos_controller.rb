@@ -7,6 +7,10 @@ class PhotosController < ApplicationController
     @photos = Photo.all
   end
 
+  def creation
+    @photos = Photo.all
+  end
+
   # GET /photos/1
   # GET /photos/1.json
   def show
@@ -14,8 +18,14 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
-    @objeto = GabineteObject.find(params[:gabinete_object])
-    @photo = @objeto.photos.build
+    if !params[:exhibit].nil?
+      @exhibit = Exhibit.find(params[:exhibit])
+      @photo = @exhibit.photos.build
+    end
+    if !params[:gabinete_object].nil?
+      @objeto = GabineteObject.find(params[:gabinete_object])
+      @photo = @objeto.photos.build
+    end
   end
 
   # GET /photos/1/edit
@@ -25,18 +35,25 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @objeto = GabineteObject.find(params[:photo][:gabinete_object_id])
-    @photo = @objeto.photos.build(photo_params)
+    if !params[:photo][:gabinete_object_id].nil?
+      @objeto = GabineteObject.find(params[:photo][:gabinete_object_id])
+      @photo = @objeto.photos.build(photo_params)
+    end
+    if !params[:photo][:exhibit_id].nil?
+      @exhibit = Exhibit.find(params[:photo][:exhibit_id])
+      @photo = @exhibit.photos.build(photo_params)
+    end
 
     respond_to do |format|
-      if @photo.save
-        format.html { redirect_to photos_path, notice: 'Photo was successfully created.' }
-        format.json { render :show, status: :created, location: @photo }
-      else
-        format.html { render :new }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+       if @photo.save
+         format.html { redirect_to photos_path, notice: 'A imagem foi criada corretamente.' }
+         format.json { render :show, status: :created, location: @photo }
+       else
+         format.html { render :new }
+         format.json { render json: @photo.errors, status: :unprocessable_entity }
+       end
     end
+
   end
 
   # PATCH/PUT /photos/1
@@ -71,6 +88,8 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:picture)
+      params.require(:photo).permit(:picture, :exhibit_id, :gabinete_object_id)
     end
+
 end
+
