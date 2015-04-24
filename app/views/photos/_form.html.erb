@@ -16,7 +16,23 @@
       <span class="picture">
         <%= f.file_field :picture, accept: 'image/jpg,image/jpeg,image/gif,image/png' %>
       </span>
-    
+
+  <div class="checkbox">
+      <% if !@exhibit.nil? %>
+        <%= f.label :ecapa do %>
+          <%= f.check_box :ecapa %> Check se é a imagem da capa da exposição?
+        <% end %>
+      <% end %>
+    </div>
+
+  <div class="checkbox">
+      <% if !@objeto.nil? %>
+        <%= f.label :ocapa do %>
+          <%= f.check_box :ocapa %> Check se é a imagem da capa do objeto?
+        <% end %>
+      <% end %>
+    </div>
+
       <%= f.hidden_field :gabinete_object_id, :value => @objeto.id if !@objeto.nil? %>
       <%= f.hidden_field :exhibit_id        , :value => @exhibit.id if !@exhibit.nil? %>
 

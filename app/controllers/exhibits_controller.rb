@@ -15,6 +15,11 @@ class ExhibitsController < ApplicationController
   # GET /exhibits/1.json
   def show
     @exhibits = Exhibit.all
+    set_actual_exp @exhibit #para conhecer o atual exposição e mudar o menu
+    
+    @exhibit.photos.each do |ima|
+      @imagem_portada = ima if ima.ecapa == true
+    end
   end
 
   # GET /exhibits/new
@@ -34,7 +39,7 @@ class ExhibitsController < ApplicationController
 
     respond_to do |format|
       if @exhibit.save
-        format.html { redirect_to @exhibit, notice: 'Exhibit was successfully created.' }
+        format.html { redirect_to creation_exhibits_path, notice: 'Exhibit was successfully created.' }
         format.json { render :show, status: :created, location: @exhibit }
       else
         format.html { render :new }
@@ -62,7 +67,7 @@ class ExhibitsController < ApplicationController
   def destroy
     @exhibit.destroy
     respond_to do |format|
-      format.html { redirect_to exhibits_url, notice: 'Exhibit was successfully destroyed.' }
+      format.html { redirect_to creation_exhibits_url, notice: 'Exhibit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

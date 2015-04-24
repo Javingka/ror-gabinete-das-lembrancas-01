@@ -12,7 +12,6 @@
           <th>Memoria</th>
           <th> <%= link_to 'Objetos', gabinete_objects_path, class: 'btn btn-default' %> </th>
           <th> <%= link_to 'Exposiçoes', exhibits_path, class: 'btn btn-default' %></th>
-          <th colspan="3"></th>
         </tr>
       </thead>
     
@@ -24,9 +23,6 @@
             <td><%= history.memoria %></td>
             <td><%= link_to obj.nome, gabinete_object_path(obj)  , class: 'btn btn-link' %> </td>
             <td><%= link_to_if !exp.nil?, exp.cidade, exhibit_path(exp) , class: 'btn btn-link'%> </td>
-            <td><%= link_to 'Show', history %></td>
-            <td><%= link_to 'Edit', edit_history_path(history) %></td>
-            <td><%= link_to 'Destroy', history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

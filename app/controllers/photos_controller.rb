@@ -30,6 +30,8 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+    @exhibit = Exhibit.find_by(id: @photo.exhibit_id)
+    @objeto = GabineteObject.find_by(id: @photo.gabinete_object_id)
   end
 
   # POST /photos
@@ -46,7 +48,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
        if @photo.save
-         format.html { redirect_to photos_path, notice: 'A imagem foi criada corretamente.' }
+         format.html { redirect_to creation_photos_path, notice: 'A imagem foi criada corretamente.' }
          format.json { render :show, status: :created, location: @photo }
        else
          format.html { render :new }
@@ -61,7 +63,7 @@ class PhotosController < ApplicationController
   def update
     respond_to do |format|
       if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+        format.html { redirect_to creation_photos_url, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @photo }
       else
         format.html { render :edit }
@@ -88,7 +90,7 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:picture, :exhibit_id, :gabinete_object_id)
+      params.require(:photo).permit(:picture, :exhibit_id, :gabinete_object_id, :ecapa, :ocapa)
     end
 
 end

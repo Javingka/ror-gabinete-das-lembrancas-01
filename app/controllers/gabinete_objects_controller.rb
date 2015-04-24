@@ -38,7 +38,7 @@ class GabineteObjectsController < ApplicationController
 
     respond_to do |format|
       if @gabinete_object.save
-        format.html { redirect_to gabinete_objects_path, notice: 'Gabinete object was successfully created.' }
+        format.html { redirect_to creation_gabinete_objects_path, notice: 'Gabinete object was successfully created.' }
         format.json { render :show, status: :created, location: @gabinete_object }
       else
         format.html { render :new }
@@ -66,7 +66,7 @@ class GabineteObjectsController < ApplicationController
   def destroy
     @gabinete_object.destroy
     respond_to do |format|
-      format.html { redirect_to gabinete_objects_url, notice: 'Gabinete object was successfully destroyed.' }
+      format.html { redirect_to creation_gabinete_objects_url, notice: 'Gabinete object was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

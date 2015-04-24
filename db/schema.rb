@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423201741) do
+ActiveRecord::Schema.define(version: 20150424012120) do
 
   create_table "exhibits", force: :cascade do |t|
     t.string   "cidade"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 20150423201741) do
     t.string  "picture"
     t.integer "gabinete_object_id"
     t.integer "exhibit_id"
+    t.boolean "ecapa",              default: false
+    t.boolean "ocapa",              default: false
   end
 
   add_index "photos", ["exhibit_id"], name: "index_photos_on_exhibit_id"

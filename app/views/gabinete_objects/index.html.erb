@@ -10,7 +10,6 @@
           <th>Nome</th>
           <th>Descripçao</th>
           <th> <%= link_to 'Exposiçoes', exhibits_path, class: 'btn btn-default' %></th>
-          <th colspan="3"></th>
         </tr>
       </thead>
     
@@ -21,11 +20,6 @@
             <td><%= gabinete_object.nome %></td>
             <td><%= gabinete_object.descripcao %></td>
             <td><%= link_to_if !exh.nil?, exh.cidade, exhibit_path(exh) , class: 'btn btn-link'%> </td>
-            <td><%= link_to 'Sube foto', new_photo_path(:gabinete_object => gabinete_object, :exhibit => exh ), class:'btn btn-success' %> </td>
-            <td><%= link_to 'Sube memoria', new_history_path(:gabinete_object => gabinete_object), class:'btn btn-success' %> </td>
-            <td><%= link_to 'Show', gabinete_object %></td>
-            <td><%= link_to 'Edit', edit_gabinete_object_path(gabinete_object) %></td>
-            <td><%= link_to 'Destroy', gabinete_object, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

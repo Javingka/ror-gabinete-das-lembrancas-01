@@ -3,10 +3,11 @@
     <% logo = image_tag("monos_minilogo.png", :alt => "infinitos monos", :class => "logo", size:'50x50') %>
   	<%= link_to logo, root_path , id: "logo" %>
     <nav>
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Inicio",  root_path , class:"page-scroll", method: :get%></li>
         <li><%= link_to "O projeto", '#projeto', class:"page-scroll" %></li>
         <li><%= link_to "Infinitos Monos",  '#infinitos' , class:"page-scroll"%></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toogle" data-toggle="dropdown">
             Exposições<b class="caret"></b>
@@ -19,6 +20,14 @@
           </ul>
         </li>
       </ul>
+        <% if !get_actual_exp.nil? %>
+      <ul class="nav  navbar-nav navbar-right">
+          <li> <%= link_to 'A cidade', '#' %> </li>
+          <li> <%= link_to 'A montagem' ,'#' %> </li>
+          <li> <%= link_to 'A exposição' ,'#' %> </li>
+          <li> <%= link_to 'A mediação' ,'#' %> </li>
+      </ul>
+        <% end %>
     </nav>
   </div>
 </header>

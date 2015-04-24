@@ -1,5 +1,12 @@
 module ExhibitsHelper
- 
+  
+  def set_actual_exp(exp)
+    @exp = exp
+  end
+  def get_actual_exp
+    @exp
+  end
+
   def get_exposicoes
     Exhibit.all
   end
