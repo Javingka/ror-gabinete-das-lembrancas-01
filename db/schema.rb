@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424012120) do
+ActiveRecord::Schema.define(version: 20150424140911) do
 
   create_table "exhibits", force: :cascade do |t|
     t.string   "cidade"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150424012120) do
     t.integer  "gabinete_object_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "frase"
   end
 
   add_index "histories", ["gabinete_object_id"], name: "index_histories_on_gabinete_object_id"

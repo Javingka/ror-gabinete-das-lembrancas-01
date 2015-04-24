@@ -48,7 +48,7 @@ class HistoriesController < ApplicationController
   def update
     respond_to do |format|
       if @history.update(history_params)
-        format.html { redirect_to @history, notice: 'History was successfully updated.' }
+        format.html { redirect_to creation_histories_path, notice: 'History was successfully updated.' }
         format.json { render :show, status: :ok, location: @history }
       else
         format.html { render :edit }
@@ -75,6 +75,6 @@ class HistoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def history_params
-      params.require(:history).permit(:memoria, :gabinete_object_id)
+      params.require(:history).permit(:memoria, :gabinete_object_id, :frase)
     end
 end

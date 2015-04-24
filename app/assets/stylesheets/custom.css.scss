@@ -231,3 +231,52 @@ video.fillWidth {
 	border-radius:$radio-round;
 }
 
+/* conainers inicio de expo */
+
+.espaco-imagem {
+  height: 500px;
+}
+.expo-ini {
+  height: 600px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	color:#fff;
+ 	background-color:#333;
+ font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+}
+
+/* GabinLorem ipsum dolor sit amet, cu his aperiri facilis definitionem. Apeirian reprimique id mei, consetetur vituperata pri at. In aperiri oporteat appellantur visete_objects */
+
+.gabinete-objects {
+  h1 {
+     font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+    font-size: 2.1em;
+    font-weight: normal;
+  }
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .nome {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+    margin-right: 10px;
+    margin-top: 5px;
+      padding: 5px 0;
+      height: 200px;
+    }
+  }
+  .his-preview{
+    max-height: 100px;
+  }
+
+}

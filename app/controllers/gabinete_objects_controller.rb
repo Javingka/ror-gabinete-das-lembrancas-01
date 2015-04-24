@@ -52,7 +52,7 @@ class GabineteObjectsController < ApplicationController
   def update
     respond_to do |format|
       if @gabinete_object.update(gabinete_object_params)
-        format.html { redirect_to @gabinete_object, notice: 'Gabinete object was successfully updated.' }
+        format.html { redirect_to creation_gabinete_objects_path, notice: 'Gabinete object was successfully updated.' }
         format.json { render :show, status: :ok, location: @gabinete_object }
       else
         format.html { render :edit }

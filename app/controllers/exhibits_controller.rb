@@ -16,7 +16,7 @@ class ExhibitsController < ApplicationController
   def show
     @exhibits = Exhibit.all
     set_actual_exp @exhibit #para conhecer o atual exposição e mudar o menu
-    
+    @gabinete_objects = @exhibit.gabinete_objects.all
     @exhibit.photos.each do |ima|
       @imagem_portada = ima if ima.ecapa == true
     end

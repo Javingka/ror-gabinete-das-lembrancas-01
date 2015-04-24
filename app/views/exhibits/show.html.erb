@@ -1,34 +1,60 @@
-
-<div class="header-unit-0">
-  <div id="video-container">
-
-    <%= image_tag @imagem_portada.picture.url if @imagem_portada != nil %>
-  </div>
+<div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
+  <div class="espaco-imagem">  </div>
 </div>
-
-<div class='row'>
-  <div class="col-md-6 col-md-offset-3">
-
-    <p>
-      <strong>Cidade:</strong>
-      <%= @exhibit.cidade %>
-    </p>
+    <div class='row'>
+      <div class="col-md-6 col-md-offset-3">
     
-    <p>
-      <strong>Datainicio:</strong>
-      <%= @exhibit.datainicio %>
-    </p>
+        <p>
+          <strong>Cidade:</strong>
+          <%= @exhibit.cidade %>
+        </p>
+        <p>
+          <strong>Datainicio:</strong>
+          <%= @exhibit.datainicio %>
+        </p>
+        <p>
+          <strong>Datafim:</strong>
+          <%= @exhibit.datafim %>
+        </p>
+        <p>
+          <strong>Local:</strong>
+          <%= @exhibit.local %>
+        </p>
+        
+      </div>
+    </div>
     
-    <p>
-      <strong>Datafim:</strong>
-      <%= @exhibit.datafim %>
-    </p>
-    
-    <p>
-      <strong>Local:</strong>
-      <%= @exhibit.local %>
-    </p>
-    
-  </div>
+    <div class='row'>
+      <div class="col-md-8 col-md-offset-2">
+    <% if @gabinete_objects.any? %>
+      <h3>Objetos (<%= @gabinete_objects.count %>) </h3>
+      <ol class="content gabinete-objects">
+        <% @gabinete_objects.each do |gabinete_object| %>  
+          <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any?%>
+          <% his = gabinete_object.histories.first.frase if gabinete_object.histories.any?%>
+          <li id="gabinete_object-<%= gabinete_object.id %>" >
+            <div class="row">
+              <div class="col-md-6">
+                <span class="content">
+                <%= image_tag pic.url  if !pic.nil? %>
+                </span>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <h2> <%= gabinete_object.pessoa %> |
+                  <%= gabinete_object.idade %> </h2>
+                  </div>
+                <div class="row">
+                  <div class="col-md-4">
+                    <h1>  <%= gabinete_object.nome %> </h1>
+              </div>
+              <div class="col-md-8">
+                <p class="his-preview"> <%= his if !his.nil? %> </p>
+              </div>
+          </div>
+        </li>
+        <% end %>
+      </ol>
+    <% end %>
 </div>
-
+</div>

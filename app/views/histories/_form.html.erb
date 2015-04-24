@@ -18,6 +18,11 @@
         <%= f.text_area :memoria %>
       </div>
 
+      <div class="field">
+        <%= f.label :frase %><br>
+        <%= f.text_area :frase, placeholder:'a frase fica como preview na lista de objetos. não mais de 140 caracteres' %>
+      </div>
+      
       <%= f.hidden_field :gabinete_object_id, :value => @objeto.id if !@objeto.nil? %>
       <div class="actions">
         <%= f.submit class: 'btn btn-primary' %>
