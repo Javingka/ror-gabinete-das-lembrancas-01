@@ -22,11 +22,15 @@ class ExhibitsController < ApplicationController
     @fotos_cidade = []
     @fotos_montagem = []
     @fotos_exposicao = []
+    @fotos_natureza = []
+    @fotos_coleta = []
     @exhibit.photos.each do |ima|
       @imagem_portada = ima if ima.ecapa == true
       @fotos_cidade << ima if ima.cidade == true
       @fotos_montagem << ima if ima.montagem == true
       @fotos_exposicao << ima if ima.expo == true
+      @fotos_natureza << ima if ima.natureza == true
+      @fotos_coleta << ima if ima.coleta == true
     end
     
   end
