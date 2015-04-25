@@ -30,21 +30,9 @@
       <% end %>
       <% if !get_actual_obj.nil? %>
        <ul class="nav  navbar-nav navbar-right">
-         <li> <%= link_to 'Voltar à exposição ', exhibit_path(@exp_obj)+'#galeria-obj',  class:"page-scroll"%> </li>
-          <li> <%= link_to 'A historia', '#historia', class:"page-scroll"%> </li>
+         <li> <%= link_to 'Voltar à exposição ', exhibit_path(@exp_obj)+'#galeria-obj',  class:"page-scroll", method: 'get'%> </li>
+          <li> <%= link_to 'A historia', '#lembranca', class:"page-scroll"%> </li>
           <li> <%= link_to 'Imagens' ,'#imagen-obj', class:"page-scroll"%> </li>       
-          <% @next_o = false %>
-              <% @obj_n = nil %>
-          <% @exp_obj.gabinete_objects.each do |o| %>
-            <% puts @gabinete_object.id %>
-            <% if @next_o %> 
-              <% @obj_n = o %>
-              <% break %>
-            <% end %>
-            <% if o.nome == @gabinete_object.nome %>
-              <% @next_o = true %>
-            <% end %>
-          <% end %>
           <li> <%= link_to 'seguinte', gabinete_object_path(@obj_n), method: 'get' %> </li> 
 
           <li class="dropdown">

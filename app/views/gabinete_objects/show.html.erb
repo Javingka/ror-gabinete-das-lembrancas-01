@@ -4,33 +4,81 @@
   <h1> <%= @gabinete_object.nome %> </h1>
   </div>
 </div>
+<br>
+<div id="lembranca" class="container">
+  <div class="jumbotron row">
+      <div class="col-md-3">
+      <aside>
+        <section class="user_info">
+          <h1><%= @gabinete_object.pessoa %> </h1>
+        </section>
+        <section class="stats">
+          <h2> <%= @gabinete_object.idade %> anos </h2>
+        </section>
+        <section>
+          <h3> <%= @gabinete_object.nome %></h3>
+        </section>
+        <section>
+          <h4> <%= @gabinete_object.descripcao %> </h4>
+        </section>
+        <hr >
+      </aside>
+      </div>
+      <div class="col-md-9">
+        <h3> Lembrança </h3>
+        <%= @gabinete_object.histories.first.memoria %>
+      </div>
+   </div>
+ </div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="imagen-obj" class="container">
+<div class='jumbotron row'>
+  <h2> Imagens </h2>
+  <br>
+  <div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="links">
+  <% @fotos.each do |f| %>
+    <a href="<%= f.picture.url %>" title="objeto" data-gallery>
+      <%= image_tag f.picture.url, size:'50x50' %>
+    </a>
+  <% end %>
+</div>
+</div>
 
 
-<p>
-  <strong>Nome:</strong>
-  <%= @gabinete_object.nome %>
-</p>
-
-<p>
-  <strong>Descripcao:</strong>
-  <%= @gabinete_object.descripcao %>
-</p>
-
-<p>
-  <strong>Pessoa:</strong>
-  <%= @gabinete_object.pessoa %>
-</p>
-
-
-<p>
-  <strong>Idade:</strong>
-  <%= @gabinete_object.idade %>
-</p>
-
-
-<p> Cant de fotos <%= @fotos.count %>
-</p>
-
-
-<%= link_to 'Edit', edit_gabinete_object_path(@gabinete_object) %> |
-<%= link_to 'Back', gabinete_objects_path %>
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/bootstrap-image-gallery.min.js"></script>
