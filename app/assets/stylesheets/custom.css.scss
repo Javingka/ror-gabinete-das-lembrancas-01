@@ -3,7 +3,7 @@
 
 /* mixins, variables, etc. */
 
-$gray-medium-light: #fff; //#eaeaea;
+$gray-medium-light: #eaeaea;
 $gray-medium-light-alpha: rgba(255,255,255,.1);
 $white: #fff; 
 $radio-round: 5px;
@@ -36,13 +36,17 @@ textarea {
   }
 }
 .navbar {
-  background-color:$gray-medium-light;
+  background-color:#fff;
 }
 .section-wide-white {
   background-color:$white;
   margin-bottom: 50px;
 }
 /* typography */
+
+.titulo {
+  margin-top: 50px; //margin para nao ficar detras do navegador na hora do scroll
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
@@ -245,9 +249,26 @@ video.fillWidth {
 	color:#fff;
  	background-color:#333;
  font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+  h1 {
+    text-align: center;
+    padding-top: 250px; 
+  }
 }
 
-/* GabinLorem ipsum dolor sit amet, cu his aperiri facilis definitionem. Apeirian reprimique id mei, consetetur vituperata pri at. In aperiri oporteat appellantur visete_objects */
+/* Gabinete_objects */
+
+.jumbotron {
+  background-color: $gray-medium-light;
+  h3 {
+    text-align: center;
+  }
+  .pagination-centered {
+    float:center;
+  }
+  p {
+    font-size: 15;
+  }
+}
 
 .gabinete-objects {
   h1 {
@@ -280,3 +301,17 @@ video.fillWidth {
   }
 
 }
+
+/* Map */
+
+.map {
+    height: 400px;
+}
+
+@media(max-width:768px) {
+    .map {
+        height: 75%;
+    }
+}
+
+

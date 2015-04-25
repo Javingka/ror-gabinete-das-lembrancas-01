@@ -15,7 +15,15 @@ class GabineteObjectsController < ApplicationController
   # GET /gabinete_objects/1
   # GET /gabinete_objects/1.json
   def show
+    @gabinete_objects = GabineteObject.all
+    @expo = Exhibit.find_by(id: @gabinete_object.exhibit_id)
+    set_actual_obj(@gabinete_objects, @expo)
+    
     @fotos = @gabinete_object.photos.all
+    @historia = @gabinete_object.histories.all
+    @gabinete_object.photos.each do |ima|
+      @imagem_portada = ima if ima.ocapa == true
+    end
   end
 
   # GET /gabinete_objects/new

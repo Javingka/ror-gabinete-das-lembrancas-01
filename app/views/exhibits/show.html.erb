@@ -1,33 +1,63 @@
+<!-- IMAGEM DE INICIO -->
 <div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
-  <div class="espaco-imagem">  </div>
+  <div class="espaco-imagem"> 
+  <h1> <%= @exhibit.cidade %> </h1>
+  </div>
 </div>
-    <div class='row'>
-      <div class="col-md-6 col-md-offset-3">
-    
-        <p>
-          <strong>Cidade:</strong>
-          <%= @exhibit.cidade %>
-        </p>
-        <p>
-          <strong>Datainicio:</strong>
-          <%= @exhibit.datainicio %>
-        </p>
-        <p>
-          <strong>Datafim:</strong>
-          <%= @exhibit.datafim %>
-        </p>
-        <p>
-          <strong>Local:</strong>
-          <%= @exhibit.local %>
-        </p>
-        
+
+<!-- INFO DA CIDADE --> 
+<!-- TITULO PARA MOSTRA DA EXPOSIÇÃO   -->  
+<div id="cidade" class="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center ">
+        <h3 class="titulo"> <%= @exhibit.cidade %> </h3>
+        <h4> do <%= @exhibit.datainicio %> ao <%= @exhibit.datafim %> no <%= @exhibit.local %> </h3>
       </div>
     </div>
-    
-    <div class='row'>
-      <div class="col-md-8 col-md-offset-2">
+    <!-- /.row -->
+  </div>
+
+  <!-- carousel ================================================== -->
+  <div id="mycarousel" class="carousel slide" data-ride="carousel">
+    <!-- indicators -->
+    <ol class="carousel-indicators">
+      <% @fotos_cidade.count.times do |index| %> 
+        <% if index == 0 %>
+          <li data-target="#mycarousel" data-slide-to=<%= index %> class='active' ></li>
+        <% else %>
+          <li data-target="#mycarousel" data-slide-to=<%= index %>> </li>
+        <% end %>
+      <% end %>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <% @fotos_cidade.each_with_index do |f, index| %>  
+        <% if index == 0 %>
+          <div class="item active">
+        <% else %>
+          <div class="item">
+        <% end %>
+          <%= image_tag f.picture.url %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+  <!-- Map -->
+<div class="map">
+  <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="<%= @exhibit.map %>"></iframe>
+    <br />
+</div>
+<br><br><br>
+
+<!-- GALERIA DE OBJETOS -->
+<div id="galeria-obj" class="container">
+<div class='jumbotron row'>
+  <h2>Objetos em exposição</h2>
+  <div class="col-md-12 ">
     <% if @gabinete_objects.any? %>
-      <h3>Objetos (<%= @gabinete_objects.count %>) </h3>
+      <%= will_paginate @gabinete_objects,:params => {:anchor => "galeria-objs"}%>
       <ol class="content gabinete-objects">
         <% @gabinete_objects.each do |gabinete_object| %>  
           <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any?%>
@@ -36,25 +66,123 @@
             <div class="row">
               <div class="col-md-6">
                 <span class="content">
-                <%= image_tag pic.url  if !pic.nil? %>
+                  <% if !pic.nil? %>
+                    <%= link_to image_tag( pic.url), gabinete_object %>
+                  <% end %>
                 </span>
               </div>
               <div class="col-md-6">
                 <div class="row">
-                  <h2> <%= gabinete_object.pessoa %> |
-                  <%= gabinete_object.idade %> </h2>
-                  </div>
+                  <h3> <%= gabinete_object.nome %> </h3>
+                </div>
                 <div class="row">
-                  <div class="col-md-4">
-                    <h1>  <%= gabinete_object.nome %> </h1>
+                  <div class="col-md-12 centered">
+                    <h4> <%= gabinete_object.pessoa %> |
+                    <%= gabinete_object.idade %> </h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 centered">
+                    <p class="his-preview"> <%= his if !his.nil? %> </p>
+                  <%= link_to 'conhece a historia', gabinete_object, class:'btn btn-default' %>
+                  </div>
+                </div>
               </div>
-              <div class="col-md-8">
-                <p class="his-preview"> <%= his if !his.nil? %> </p>
-              </div>
-          </div>
-        </li>
+            </div>
+          </li>
         <% end %>
       </ol>
+      <%= will_paginate @gabinete_objects,:params => {:anchor => "galeria-objs"} %>
     <% end %>
+  </div>
 </div>
 </div>
+
+<!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+<div id="exposicao" class="container">
+<div class='jumbotron row'>
+  <h2>Exposição e Montagem</h2>
+  <br>
+  <div id="blueimp-gallery" class="blueimp-gallery">
+    <!-- The container for the modal slides -->
+    <div class="slides"></div>
+    <!-- Controls for the borderless lightbox -->
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+    <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"></h4>
+                </div>
+                <div class="modal-body next"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left prev">
+                        <i class="glyphicon glyphicon-chevron-left"></i>
+                        Previous
+                    </button>
+                    <button type="button" class="btn btn-primary next">
+                        Next
+                        <i class="glyphicon glyphicon-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="links">
+  <% @fotos_montagem.each do |f| %>
+    <a href="<%= f.picture.url %>" title="gabinete" data-gallery>
+      <%= image_tag f.picture.url, size:'50x50' %>
+    </a>
+  <% end %>
+  <% @fotos_exposicao.each do |f| %>
+    <a href="<%= f.picture.url %>" title="gabinete" data-gallery>
+      <%= image_tag f.picture.url, size:'50x50' %>
+    </a>
+  <% end %>
+
+</div>
+</div>
+</div>
+
+<div id='comentarios' class='jumbotorn'>
+  <h1 class='titulo'>Livro de visitas</h1>
+  
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Comentário</th>
+            <th>Pessoa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @comentarios.each do |comment| %>
+            <% if comment.exhibit_id == @exhibit.id %>
+              <% exh = Exhibit.find_by(id: comment.exhibit_id) %>
+              <tr>
+                <td><%= comment.comentario %></td>
+                <td><%= comment.pessoa %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+</div>
+
+
+<script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="js/bootstrap-image-gallery.min.js"></script>
+

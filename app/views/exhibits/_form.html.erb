@@ -29,6 +29,10 @@
         <%= f.label :local %><br>
         <%= f.text_field :local %>
       </div>
+      <div class="field">
+        <%= f.label :map %><br>
+        <%= f.text_field :map, placeholder:'link com de google map para ser embedido. em Options -> share or embed map. E colar aqui o endereço' %>
+      </div>
       <div class="actions">
         <%= f.submit params[:action]+' exposição', class: "btn btn-primary"%>
       </div>

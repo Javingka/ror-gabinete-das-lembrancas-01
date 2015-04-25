@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150424140911) do
+ActiveRecord::Schema.define(version: 20150424221752) do
 
   create_table "exhibits", force: :cascade do |t|
     t.string   "cidade"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150424140911) do
     t.string   "local"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "map"
   end
 
   create_table "gabinete_objects", force: :cascade do |t|
@@ -48,9 +49,24 @@ ActiveRecord::Schema.define(version: 20150424140911) do
     t.integer "exhibit_id"
     t.boolean "ecapa",              default: false
     t.boolean "ocapa",              default: false
+    t.boolean "montagem",           default: false
+    t.boolean "expo",               default: false
+    t.boolean "cidade",             default: false
+    t.boolean "natureza",           default: false
   end
 
   add_index "photos", ["exhibit_id"], name: "index_photos_on_exhibit_id"
   add_index "photos", ["gabinete_object_id"], name: "index_photos_on_gabinete_object_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comentario"
+    t.string   "pessoa"
+    t.integer  "exhibit_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["exhibit_id"], name: "index_comments_on_exhibit_id"
+
 
 end

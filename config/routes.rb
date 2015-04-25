@@ -22,6 +22,12 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments do
+    collection do
+      get 'creation'
+    end
+  end
+
   get 'static_pages/home'
   get 'static_pages/monos'
   get 'static_pages/show_exp'

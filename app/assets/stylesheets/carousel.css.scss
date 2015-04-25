@@ -1,0 +1,59 @@
+
+
+.centered {
+    text-align: center;
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 400px;
+  background-color:#555;
+}
+.carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 400px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  top: 60%;
+	bottom: auto;
+	z-index: 1;
+  background-color: transparent;
+  position: static;
+  max-width: 70%;
+  padding: 0 20px;
+  margin:0 auto;
+  margin-top: 50px;
+  text-align:center;
+}
+.carousel-caption h1,
+.carousel-caption .lead {
+  margin: 0;
+  line-height: 2.25;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.lead_longo {
+  font-size: 15px;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  text-align: justify;
+}
+.carousel-caption .btn {
+  margin-top: 10px;
+}
+.carousel-caption p {
+  background-color: rgba(0,0,0,.2); //transparent;
+}
+

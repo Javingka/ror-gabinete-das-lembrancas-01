@@ -16,10 +16,19 @@ class ExhibitsController < ApplicationController
   def show
     @exhibits = Exhibit.all
     set_actual_exp @exhibit #para conhecer o atual exposição e mudar o menu
-    @gabinete_objects = @exhibit.gabinete_objects.all
+    @gabinete_objects = @exhibit.gabinete_objects.paginate(page: params[:page], :per_page => 4)
+    @comentarios = @exhibit.comments.all
+
+    @fotos_cidade = []
+    @fotos_montagem = []
+    @fotos_exposicao = []
     @exhibit.photos.each do |ima|
       @imagem_portada = ima if ima.ecapa == true
+      @fotos_cidade << ima if ima.cidade == true
+      @fotos_montagem << ima if ima.montagem == true
+      @fotos_exposicao << ima if ima.expo == true
     end
+    
   end
 
   # GET /exhibits/new
@@ -80,6 +89,6 @@ class ExhibitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibit_params
-      params.require(:exhibit).permit(:cidade, :datainicio, :datafim, :local)
+      params.require(:exhibit).permit(:cidade, :datainicio, :datafim, :local, :map)
     end
 end

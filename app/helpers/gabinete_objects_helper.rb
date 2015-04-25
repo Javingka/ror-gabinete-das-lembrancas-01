@@ -1,5 +1,17 @@
 module GabineteObjectsHelper
-  
+    
+  def set_actual_obj(obj, expo)
+    @obj = obj
+    @exp_obj = expo
+  end
+  def get_actual_obj
+    @obj
+  end
+
+  def get_objects
+    GabineteObject.all
+  end
+
   def def_actual_object (obj)
     session[:obj_id] = obj.id
 #    @actO = GabineteObject.find_by(id: obj.id)

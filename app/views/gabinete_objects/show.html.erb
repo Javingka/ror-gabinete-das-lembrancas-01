@@ -1,4 +1,10 @@
-<p id="notice"><%= notice %></p>
+<!-- IMAGEM DE INICIO -->
+<div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
+  <div class="espaco-imagem"> 
+  <h1> <%= @gabinete_object.nome %> </h1>
+  </div>
+</div>
+
 
 <p>
   <strong>Nome:</strong>

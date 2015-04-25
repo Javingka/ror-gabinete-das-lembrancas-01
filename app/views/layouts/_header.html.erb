@@ -1,6 +1,6 @@
 <header class="navbar navbar-fixed-top ">
   <div class="container">
-    <% logo = image_tag("monos_minilogo.png", :alt => "infinitos monos", :class => "logo", size:'50x50') %>
+    <% logo = image_tag("monos_minilogo.png", :alt => "infinitos monos", :class => "logo", size:'40x40') %>
   	<%= link_to logo, root_path , id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-left">
@@ -15,19 +15,52 @@
           <ul class="dropdown-menu">
             <% exps = get_exposicoes %>
             <% exps.each do |exhibit| %>
-              <li>  <%= link_to exhibit.cidade, exhibit %> </li>
+              <li>  <%= link_to exhibit.cidade, exhibit, method: 'get' %> </li>
             <% end %>
           </ul>
         </li>
       </ul>
-        <% if !get_actual_exp.nil? %>
-      <ul class="nav  navbar-nav navbar-right">
-          <li> <%= link_to 'A cidade', '#' %> </li>
-          <li> <%= link_to 'A montagem' ,'#' %> </li>
-          <li> <%= link_to 'A exposição' ,'#' %> </li>
-          <li> <%= link_to 'A mediação' ,'#' %> </li>
-      </ul>
-        <% end %>
+      <% if !get_actual_exp.nil? %>
+       <ul class="nav  navbar-nav navbar-right">
+          <li> <%= link_to 'A cidade', '#cidade', class:"page-scroll"%> </li>
+          <li> <%= link_to 'A coleção' ,'#galeria-obj', class:"page-scroll"%> </li>
+          <li> <%= link_to 'A exposição' ,'#exposicao', class:"page-scroll"%> </li>
+          <li> <%= link_to 'Livro de visitas' ,'#comentarios', class:"page-scroll"%> </li>
+       </ul>
+      <% end %>
+      <% if !get_actual_obj.nil? %>
+       <ul class="nav  navbar-nav navbar-right">
+         <li> <%= link_to 'Voltar à exposição ', exhibit_path(@exp_obj)+'#galeria-obj',  class:"page-scroll"%> </li>
+          <li> <%= link_to 'A historia', '#historia', class:"page-scroll"%> </li>
+          <li> <%= link_to 'Imagens' ,'#imagen-obj', class:"page-scroll"%> </li>       
+          <% @next_o = false %>
+              <% @obj_n = nil %>
+          <% @exp_obj.gabinete_objects.each do |o| %>
+            <% puts @gabinete_object.id %>
+            <% if @next_o %> 
+              <% @obj_n = o %>
+              <% break %>
+            <% end %>
+            <% if o.nome == @gabinete_object.nome %>
+              <% @next_o = true %>
+            <% end %>
+          <% end %>
+          <li> <%= link_to 'seguinte', gabinete_object_path(@obj_n), method: 'get' %> </li> 
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toogle" data-toggle="dropdown">
+             Objetos <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <% objs = @exp_obj.gabinete_objects.all %>
+              <% objs.each do |o| %>
+                <li>  <%= link_to o.nome, o, method: 'get' %> </li>
+              <% end %>
+            </ul>
+          </li>
+
+       </ul>
+      <% end %>
     </nav>
   </div>
 </header>

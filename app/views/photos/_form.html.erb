@@ -20,10 +20,23 @@
   <div class="checkbox">
       <% if !@exhibit.nil? %>
         <%= f.label :ecapa do %>
-          <%= f.check_box :ecapa %> Check se é a imagem da capa da exposição?
+          <%= f.check_box :ecapa %> Check se é a imagem capa da residencia 
+        <% end %> <br>
+        <%= f.label :montagem do %>
+          <%= f.check_box :montagem %> Check se é imagem da montagem 
+        <% end %> <br>
+        <%= f.label :expo do %>
+          <%= f.check_box :expo %> Check se é imagem da exposição
+        <% end %> <br>
+        <%= f.label :cidade do %>
+          <%= f.check_box :cidade %> Check se é imagem da cidade
+        <% end %> <br>
+        <%= f.label :natureza do %>
+          <%= f.check_box :natureza %> Check se é imagem de natureza
         <% end %>
       <% end %>
-    </div>
+  </div>
+  <hr>
 
   <div class="checkbox">
       <% if !@objeto.nil? %>
