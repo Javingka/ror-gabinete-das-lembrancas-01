@@ -1,7 +1,6 @@
 <!-- IMAGEM DE INICIO -->
 <div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
   <div class="espaco-imagem"> 
-  <h1> <%= @gabinete_object.nome %> </h1>
   </div>
 </div>
 <br>
@@ -20,15 +19,12 @@
         <section>
           <h3> <%= @gabinete_object.nome %></h3>
         </section>
-        <section>
-          <h4> <%= @gabinete_object.descripcao %> </h4>
-        </section>
         <hr >
       </aside>
       </div>
       <div class="col-md-9">
-        <h3> Lembrança </h3>
-        <%= @gabinete_object.histories.first.memoria %>
+        <h3>  </h3>
+        <%=  simple_format(@gabinete_object.histories.first.memoria) %>
       </div>
    </div>
  </div>
