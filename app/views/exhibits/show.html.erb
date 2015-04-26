@@ -41,7 +41,7 @@
   <div id="mycarousel" class="carousel slide" data-ride="carousel">
     <!-- indicators -->
     <ol class="carousel-indicators">
-      <% @fotos_cidade.count.times do |index| %> 
+      <% @fotos_exposicao.count.times do |index| %> 
         <% if index == 0 %>
           <li data-target="#mycarousel" data-slide-to=<%= index %> class='active' ></li>
         <% else %>
@@ -152,22 +152,22 @@
 
 <div id="links">
   <% @fotos_montagem.each do |f| %>
-    <a href="<%= f.picture.url %>" title="" data-gallery>
+    <a href="<%= f.picture.url %>" title=" " data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
   <% end %>
   <% @fotos_exposicao.each do |f| %>
-    <a href="<%= f.picture.url %>" title="" data-gallery>
+    <a href="<%= f.picture.url %>" title=" " data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
   <% end %>
    <% @fotos_coleta.each do |f| %>
-    <a href="<%= f.picture.url %>" title="" data-gallery>
+    <a href="<%= f.picture.url %>" title=" " data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
   <% end %>
   <% @fotos_cidade.each do |f| %>
-    <a href="<%= f.picture.url %>" title="" data-gallery>
+    <a href="<%= f.picture.url %>" title=" " data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
   <% end %>
