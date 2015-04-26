@@ -11,7 +11,8 @@
     <div class="row">
       <div class="col-lg-12 text-center ">
         <h3 class="titulo"> <%= @exhibit.cidade %> </h3>
-        <h4> do <%= @exhibit.datainicio %> ao <%= @exhibit.datafim %> no <%= @exhibit.local %> </h3>
+        <h4> do <%= @exhibit.datainicio %> à <%= @exhibit.datafim %> </h4>
+        <h4> <%= @exhibit.local %> </h4>
       </div>
     </div>
     <!-- /.row -->
@@ -76,16 +77,16 @@
           <% his = gabinete_object.histories.first.frase if gabinete_object.histories.any?%>
           <li id="gabinete_object-<%= gabinete_object.id %>" >
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-8">
                 <span class="content">
                   <% if !pic.nil? %>
                     <%= link_to image_tag( pic.url), gabinete_object %>
                   <% end %>
                 </span>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <div class="row">
-                  <h3> <%= gabinete_object.nome %> </h3>
+                  <h3> <strong> <%= gabinete_object.nome %> </strong> </h3>
                 </div>
                 <div class="row">
                   <div class="col-md-12 centered">
@@ -95,8 +96,8 @@
                 </div>
                 <div class="row">
                   <div class="col-md-12 centered">
-                    <p class="his-preview"> <%= his if !his.nil? %> </p>
-                  <%= link_to 'conhece a historia', gabinete_object, class:'btn btn-default' %>
+                    <p class="his-preview"> <i> <%= his if !his.nil? %></i> </p>
+                  <%= link_to 'História', gabinete_object, class:'btn btn-default' %>
                   </div>
                 </div>
               </div>
@@ -151,24 +152,25 @@
 
 <div id="links">
   <% @fotos_montagem.each do |f| %>
-    <a href="<%= f.picture.url %>" title="gabinete" data-gallery>
+    <a href="<%= f.picture.url %>" title="" data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
   <% end %>
   <% @fotos_exposicao.each do |f| %>
-    <a href="<%= f.picture.url %>" title="gabinete" data-gallery>
+    <a href="<%= f.picture.url %>" title="" data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
+  <% end %>
    <% @fotos_coleta.each do |f| %>
-    <a href="<%= f.picture.url %>" title="gabinete" data-gallery>
+    <a href="<%= f.picture.url %>" title="" data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
   <% end %>
   <% @fotos_cidade.each do |f| %>
-    <a href="<%= f.picture.url %>" title="gabinete" data-gallery>
+    <a href="<%= f.picture.url %>" title="" data-gallery>
       <%= image_tag f.picture.url, size:'100x100' %>
     </a>
-  <% end %> <% end %>
+  <% end %>
 </div>
 </div>
 
@@ -181,18 +183,30 @@
         <thead>
           <tr>
             <th>Comentário</th>
-            <th>Pessoa</th>
           </tr>
         </thead>
         <tbody>
+          <% blankCom = [] %>
+          <% soNomeCom = [] %>
           <% @comentarios.each do |comment| %>
             <% if comment.exhibit_id == @exhibit.id %>
-              <% exh = Exhibit.find_by(id: comment.exhibit_id) %>
+              <% if comment.pessoa.blank? %>
+                <% blankCom << comment %>
+                <% next %>
+              <% elsif comment.pessoa !~ /[0-9]/ %>
+                <% soNomeCom << comment %>
+                <% next %>
+              <% end %>
               <tr>
-                <td><%= comment.comentario %></td>
-                <td><%= comment.pessoa %></td>
+                <td><%= comment.comentario %> <%= comment.pessoa %> </td>
               </tr>
             <% end %>
+          <% end %>
+          <% soNomeCom.each do |comment| %>
+             <tr><td><%= comment.comentario %> <%= comment.pessoa %> </td> </tr>
+          <% end %>
+          <% blankCom.each do |comment| %>
+            <tr><td><%= comment.comentario %> </td> </tr>
           <% end %>
         </tbody>
       </table>
