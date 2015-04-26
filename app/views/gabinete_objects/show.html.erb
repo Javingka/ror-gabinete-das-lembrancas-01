@@ -13,7 +13,9 @@
           <h1><%= @gabinete_object.pessoa %> </h1>
         </section>
         <section class="stats">
-          <h2> <%= @gabinete_object.idade %> anos </h2>
+          <% if @gabinete_object.idade != '' %>
+            <h2> <%= @gabinete_object.idade %> anos </h2>
+          <% end%>
         </section>
         <section>
           <h3> <%= @gabinete_object.nome %></h3>
@@ -34,7 +36,7 @@
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="imagen-obj" class="container">
 <div class='jumbotron row'>
-  <h2> Imagens </h2>
+  <h2> Imagenes do objeto </h2>
   <br>
   <div id="blueimp-gallery" class="blueimp-gallery">
     <!-- The container for the modal slides -->
@@ -73,7 +75,7 @@
 <div id="links">
   <% @fotos.each do |f| %>
     <a href="<%= f.picture.url %>" title="objeto" data-gallery>
-      <%= image_tag f.picture.url, size:'50x50' %>
+      <%= image_tag f.picture.url, size:'200x200' %>
     </a>
   <% end %>
 </div>
