@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   end
 
   def creation
-    @photos = Photo.paginate(page: params[:page], :per_page => 4)
+    @photos = Photo.paginate(page: params[:page], :per_page => 30)
   #  @photos = Photo.all
   end
 
