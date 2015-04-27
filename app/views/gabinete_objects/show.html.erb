@@ -70,7 +70,7 @@
 
 <div id="links">
   <% @fotos.each do |f| %>
-    <a href="<%= f.picture.url %>" title="objeto" data-gallery>
+    <a href="<%= f.picture.url %>" title=" " data-gallery>
       <%= image_tag f.picture.url, size:'200x200' %>
     </a>
   <% end %>
