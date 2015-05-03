@@ -31,10 +31,10 @@ class HistoriesController < ApplicationController
   def create
     @objeto = GabineteObject.find(params[:history][:gabinete_object_id])
     @history = @objeto.histories.build(history_params)
-
+    exh = Exhibit.find_by(id: @objeto.exhibit_id) 
     respond_to do |format|
       if @history.save
-        format.html { redirect_to creation_gabinete_objects_path, notice: 'History was successfully created.' }
+        format.html { redirect_to new_photo_path(:gabinete_object => @objeto, :exhibit => exh ), notice: 'History was successfully created.' }
         format.json { render :show, status: :created, location: @history }
       else
         format.html { render :new }

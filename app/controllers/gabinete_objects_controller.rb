@@ -46,7 +46,7 @@ class GabineteObjectsController < ApplicationController
 
     respond_to do |format|
       if @gabinete_object.save
-        format.html { redirect_to creation_gabinete_objects_path, notice: 'Gabinete object was successfully created.' }
+        format.html { redirect_to new_history_path(:gabinete_object => @gabinete_object), notice: 'Gabinete object was successfully created.' }
         format.json { render :show, status: :created, location: @gabinete_object }
       else
         format.html { render :new }
