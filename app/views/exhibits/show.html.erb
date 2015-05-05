@@ -6,7 +6,7 @@
 </div>
 
 <!-- VIDEO -->
-<% if !@exhibit.video_src.blank? %>
+<% if !@exhibit.video_src.empty? %>
   <br>
     <div class='myIframe' id="video-expo" > 
       <iframe src="<%=@exhibit.video_src %>" frameborder="0" allowfullscreen></iframe>
