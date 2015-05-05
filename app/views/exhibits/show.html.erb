@@ -5,6 +5,15 @@
   </div>
 </div>
 
+<!-- VIDEO -->
+<% if !@exhibit.video_src.blank? %>
+  <br>
+    <div class='myIframe' id="video-expo" > 
+      <iframe src="<%=@exhibit.video_src %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <br>
+<% end %>
+
 <!-- INFO DA CIDADE --> 
 <div id="cidade" class="about">
   <div class="container">
