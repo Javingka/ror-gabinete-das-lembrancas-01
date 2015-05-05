@@ -22,7 +22,7 @@
       </ul>
       <% if !get_actual_exp.nil? %>
        <ul class="nav  navbar-nav navbar-right">
-          <% if !get_actual_exp.video_src.empty? %>
+          <% if !get_actual_exp.video_src.blank? %>
             <li> <%= link_to 'Video', '#video-expo', class:"page-scroll" %> <li>
           <% end %>
           <li> <%= link_to 'A cidade', '#cidade', class:"page-scroll"%> </li>
