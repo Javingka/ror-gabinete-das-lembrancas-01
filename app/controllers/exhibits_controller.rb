@@ -16,6 +16,10 @@ class ExhibitsController < ApplicationController
   def show
     @exhibits = Exhibit.all
     set_actual_exp @exhibit #para conhecer o atual exposição e mudar o menu
+
+    #impressionst
+    impressionist(@exhibit, "show inside exhibiti #{@exhibit.cidade}") 
+
     @gabinete_objects = @exhibit.gabinete_objects.paginate(page: params[:page], :per_page => 4)
     @comentarios = @exhibit.comments.all
 

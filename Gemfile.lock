@@ -118,7 +118,11 @@ GEM
       guard (~> 2.0)
       minitest (>= 3.0)
     hitimes (1.2.2)
+    httpclient (2.6.0.1)
     i18n (0.7.0)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     inflecto (0.0.2)
     ipaddress (0.8.0)
     jbuilder (2.2.13)
@@ -263,6 +267,7 @@ DEPENDENCIES
   faker (= 1.4.2)
   fog (= 1.23.0)
   guard-minitest (= 2.3.1)
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails (= 4.0.3)
   jquery-scrollto-rails

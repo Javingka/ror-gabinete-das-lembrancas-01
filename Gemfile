@@ -21,6 +21,9 @@ gem 'bootstrap-will_paginate', '0.0.10'
 # Include Bootstrap
 gem 'bootstrap-sass'
 
+# Include gem to get count of the visits
+gem 'impressionist'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.1'
 # Use Uglifier as compressor for JavaScript assets

@@ -233,6 +233,17 @@
   <br>
 </div>
 
+<!-- Counter -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2 col-md-offset-5 ">
+        <p> (
+          <%= "#{@exhibit.impressionist_count(:filter=>:session_hash)} visitas" %>) 
+        </p>
+    </div>
+  </div>
+  </div>
+
 
 <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
 <script src="js/bootstrap-image-gallery.min.js"></script>
