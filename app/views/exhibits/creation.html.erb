@@ -35,6 +35,12 @@
             <td colspan="9"> <%= link_to 'Subir objeto', new_gabinete_object_path(:exhibit => exhibit), class:'btn btn-primary' %> </td>
           </tr>
           <tr>
+            <td colspan="9"> Visitas só contando a primeira vez que entra: <%= "#{exhibit.impressionist_count(:filter=>:session_hash)} " %> </td>
+          </tr>
+          <tr>
+            <td colspan="9"> Todas as visitas: <%= "#{exhibit.impressionist_count()} " %> </td>
+          </tr>
+          <tr>
             <td colspan="7"> </td>
           </tr>
         <% end %>
@@ -44,6 +50,8 @@
   </div>
 </div>
 <br>
+
+<h1>Visitas</h1>
 
 <h2>Outras listas</h2>
 
