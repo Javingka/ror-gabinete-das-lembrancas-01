@@ -21,6 +21,7 @@ class ExhibitsController < ApplicationController
     impressionist(@exhibit, "show inside exhibiti #{@exhibit.cidade}") 
 
     @gabinete_objects = @exhibit.gabinete_objects.paginate(page: params[:page], :per_page => 4)
+    @gabinete_objects_all = @exhibit.gabinete_objects;
     @comentarios = @exhibit.comments.all
 
     @fotos_cidade = []
