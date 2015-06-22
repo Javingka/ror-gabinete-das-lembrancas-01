@@ -82,64 +82,7 @@
 </div>
 
 <!-- GALERIA NOVA -->
-<div id="galeria-obj" class="container-fluid" style="background-color: black"> 
-  <% if @gabinete_objects_all.any? %>
-  <h2> Objetos e suas histórias </h2>
-  <div class="row">
-    <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>  
-    <% gabinete_object.photos.each do |ima| %>
-      <% imagem_port = ima if ima.ocapa == true %>
-    <%end%>
-        <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any?%>
-        <% his = gabinete_object.histories.first.frase if gabinete_object.histories.any?%>
-        <% if !pic.nil? %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-image: url(<%= imagem_port.url %>);  background-repeat: no-repeat;  background-attachment: fixed;  background-position: center ; height:150px">
-     <!--          <%= link_to image_tag( pic.url, width:'100%' ), gabinete_object %> -->
-        <% else %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-color: gray ">
-        <% end %>
-          <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: visible">
-            <%= link_to 'História', gabinete_object, class:'btn', style: "background-color: rgba(255,255,255,.4); margin-top: 5px" %>
-            <h3 > <strong> <%= gabinete_object.nome %> </strong> </h3>
-            <h4> <%= gabinete_object.pessoa %> |
-            <%= gabinete_object.idade %> </h4>
-            <p class="his-preview" > <i> <%= his if !his.nil? %></i> </p>
-          </div>
-        </div>
-    <% end %>
-  <% end %>
-  </div>
-<br><br>
-</div>
-
-<%= javascript_tag do %>
-  var ig = $(".img-gal");
-  var w = ig.width();
-//  alert ("w" + w);
-  ig.css('height', w);
-/*
-  $(".img-gal").click( function (event) {
-//    alert(event.target.id);
-    var numberOut = /[0-9]+/; //tw tiene el formato: 000px, con el número seguido de 'px'
-    var id = numberOut.exec(event.target.id); //nos quedamos solo con los números
-    var id_o = "info-obj_"+id;
-    var visibilidad = document.getElementById(id_o).style.visibility;
-    if (visibilidad == 'visible')
-      document.getElementById(id_o).style.visibility = "hidden";
-    else
-      document.getElementById(id_o).style.visibility = "visible";
-
-    //   $(id_o).css('visibility', 'hidden');
- //   alert (visibilidad ); 
-  });
-  $(".img-gal").mouseenter( function (event) {
-
-  });
-  */
-<% end %>
-
 <!-- GALERIA DE OBJETOS -->
-<!--
 <div id="galeria-obj" class="container">
 <div class='jumbotron row'>
   <h2> Objetos e suas histórias </h2>
@@ -185,7 +128,6 @@
   </div>
 </div>
 </div>
--->
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="expo-gallery" class="container">
 <div class='jumbotron row'>
