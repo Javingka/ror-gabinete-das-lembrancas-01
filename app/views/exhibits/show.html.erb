@@ -87,10 +87,13 @@
   <h2> Objetos e suas histórias </h2>
   <div class="row">
     <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>  
+    <% gabinete_object.photos.each do |ima| %>
+      <% imagem_port = ima if ima.ocapa == true %>
+    <%end%>
         <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any?%>
         <% his = gabinete_object.histories.first.frase if gabinete_object.histories.any?%>
         <% if !pic.nil? %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-attachment: fixed;  background-position: center center; height:150px">
+          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-image: url(<%= imagem_port.url %>);  background-repeat: no-repeat;  background-attachment: fixed;  background-position: center ; height:150px">
      <!--          <%= link_to image_tag( pic.url, width:'100%' ), gabinete_object %> -->
         <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-color: gray ">

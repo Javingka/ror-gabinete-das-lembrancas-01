@@ -37,7 +37,7 @@ class ExhibitsController < ApplicationController
       @fotos_natureza << ima if ima.natureza == true
       @fotos_coleta << ima if ima.coleta == true
     end
-    
+
   end
 
   # GET /exhibits/new
