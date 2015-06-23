@@ -84,7 +84,7 @@
 <!-- GALERIA NOVA -->
 <div id="galeria-obj" class="container-fluid" style="background-color: black"> 
   <% if @gabinete_objects_all.any? %>
-  <h2> Objetos e suas histórias </h2>
+  <h2 style="color: rgb(200,200,200); text-align: center"> Objetos e suas histórias </h2>
   <div class="row">
     <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>  
     <% gabinete_object.photos.each do |ima| %>
@@ -99,9 +99,13 @@
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-color: gray ">
         <% end %>
           <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: hidden; background-color: rgba(0,0,0,.6)">
-            <%= link_to 'História', gabinete_object, class:'btn', style: "background-color: rgba(255,255,255,.4); margin-top: 5px" %>
-            <h3 style="color: rgb(220,220,220)" > <strong> <%= gabinete_object.nome %> </strong> </h3>
-            <h4 style="color: rgb(200,200,200)" > <%= gabinete_object.pessoa %> |
+            <div class="row">
+            <div class="col-xs-8 col-xs-offset-2" >
+              <%= link_to 'História', gabinete_object, class:'btn btn-primary', style: "background-color: rgba(255,255,255,.4); margin-top: 5px " %>
+            </div>
+            </div>
+            <h3 style="color: rgb(220,220,220); text-align: center" > <strong> <%= gabinete_object.nome %> </strong> </h3>
+            <h4 style="color: rgb(200,200,200); text-align: center" > <%= gabinete_object.pessoa %> |
             <%= gabinete_object.idade %> </h4>
             <p class="his-preview" style="color: white" > <i> <%= his if !his.nil? %></i> </p>
           </div>
@@ -139,6 +143,7 @@
 <% end %>
 
 <!-- GALERIA DE OBJETOS -->
+<!--
 <div id="galeria-obj" class="container">
 <div class='jumbotron row'>
   <h2> Objetos e suas histórias </h2>
@@ -184,6 +189,8 @@
   </div>
 </div>
 </div>
+-->
+
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="expo-gallery" class="container">
 <div class='jumbotron row'>
