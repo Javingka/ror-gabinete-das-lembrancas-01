@@ -101,10 +101,10 @@
 
 
         <% if !pic.nil? %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-3" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px"> <!-- background-size: 100%; -->'
+          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-6" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px"> <!-- background-size: 100%; -->'
      <!--          <%= link_to image_tag( pic.url, width:'100%' ), gabinete_object %> -->
         <% else %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-color: gray ">
+          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-6" style="background-color: gray ">
         <% end %>
           <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: hidden; background-color: rgba(0,0,0,.7); round:10px">
             <div class="row">
@@ -127,7 +127,7 @@
 <%= javascript_tag do %>
   var ig = $(".img-gal");
   var w = ig.width();
-//  w = 3*w/4;
+  w = w/2;
 //  alert ("w" + w);
   ig.css('height', w);
 
