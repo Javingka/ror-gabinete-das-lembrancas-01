@@ -98,16 +98,16 @@
         <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-3" style="background-color: gray ">
         <% end %>
-          <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: hidden; background-color: rgba(0,0,0,.6)">
+          <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: hidden; background-color: rgba(0,0,0,.7); round:10px">
             <div class="row">
             <div class="col-xs-8 col-xs-offset-2" >
-              <%= link_to 'História', gabinete_object, class:'btn btn-primary', style: "background-color: rgba(255,255,255,.4); margin-top: 5px " %>
+              <%= link_to 'História', gabinete_object, class:'btn btn-primary', style: "background-color: rgba(0,0,0,.9); margin-top: 5px " %>
             </div>
             </div>
             <h3 style="color: rgb(220,220,220); text-align: center" > <strong> <%= gabinete_object.nome %> </strong> </h3>
             <h4 style="color: rgb(200,200,200); text-align: center" > <%= gabinete_object.pessoa %> |
             <%= gabinete_object.idade %> </h4>
-            <p class="his-preview" style="color: white" > <i> <%= his if !his.nil? %></i> </p>
+            <p class="his-preview" style="color: white; font-size:15px; margin: 5px" > <i> <%= his if !his.nil? %></i> </p>
           </div>
         </div>
     <% end %>
