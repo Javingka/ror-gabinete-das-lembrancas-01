@@ -242,22 +242,22 @@
 <div id="links">
   <% @fotos_montagem.each do |f| %>
     <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url, size:'100x100' %>
+      <%= image_tag f.picture.url, width: 'auto', height: '100px' %>
     </a>
   <% end %>
   <% @fotos_exposicao.each do |f| %>
     <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url, size:'100x100' %>
+      <%= image_tag f.picture.url,  width: 'auto', height: '100px' %>
     </a>
   <% end %>
    <% @fotos_coleta.each do |f| %>
     <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url, size:'100x100' %>
+      <%= image_tag f.picture.url,  width: 'auto', height: '100px' %>
     </a>
   <% end %>
   <% @fotos_cidade.each do |f| %>
     <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url, size:'100x100' %>
+      <%= image_tag f.picture.url,  width: 'auto', height: '100px' %>
     </a>
   <% end %>
 </div>
