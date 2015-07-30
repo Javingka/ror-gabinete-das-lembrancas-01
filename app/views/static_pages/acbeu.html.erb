@@ -1,0 +1,57 @@
+<!--
+<div class="container" style="position: fixed; z-index: 9; background-color: white">
+<div class="row" >
+  <div class="col-xs-2 col-xs-offset-2">
+    <div class="row">
+      <h2> Nome pessoa </h2>
+      <h3> Objetos da pessoa </h3>
+      <h3> Cidade </h3>
+    </div>
+  </div>
+  <div class="col-xs-6">
+  <iframe width="100%" height="180" scrolling="no" frameborder="no" src="<%= @src_audio %>&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+  </div>
+  <div class="col-xs-2">
+    <%= image_tag('monos_minilogo.png', width:'100%') %>
+  </div>
+</div>
+</div>
+-->
+
+<!-- http://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html -->
+<% content_for :acbeu do %>
+
+
+    <div class="container">
+
+      <!-- Main component for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <h2>COMO SE USA</h2>
+        <ul>
+          <li>Faz click na imagem que quiser ouvir</li>
+          <li>NÃO precissa ouvir em baixo volumen, fique a vontade de hinchar o ambente com esses sons e depoimentos</li>
+        </ul>
+        <div class="row">
+          <div class="col-xs-4 col-xs-offset-2">
+            <a class="btn btn-lg btn-primary" href="#navbar" role="button">Depoimentos</a>
+          </div>
+          <div class="col-xs-4 ">
+            <a class="btn btn-lg btn-primary" href="#navbar" role="button">Sons</a>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+<div class="container" style="padding-top: 180px">
+<% @gabinete_objects.each_with_index do |gabinete_object, index| %>  
+  <div class="col-xs-6 col-md-3 col-lg-2" class="audio-btn" id="obj-<%= index %>" >
+    <%= image_tag('monos_minilogo.png', width:'100%') %>
+  </div>
+<% end %>
+</div>
+
+<% end %>
+
+<script>
+ </script>  

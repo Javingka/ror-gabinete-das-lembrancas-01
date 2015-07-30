@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/monos'
   get 'static_pages/show_exp'
+  get 'static_pages/acbeu'
   
 
 end

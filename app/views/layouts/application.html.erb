@@ -8,7 +8,7 @@
   <%= render 'layouts/shim' %>
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
-  <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css">
+  <!--  <link rel="stylesheet" href="css/bootstrap-image-gallery.min.css"> -->
   <%= render 'layouts/google_analytics' %>
 
   <meta property="og:type" content="website" />
@@ -17,8 +17,14 @@
 
 </head>
 <body>
-  <%= render 'layouts/header' %>
-  
+
+  <% if content_for?(:acbeu) %>
+   <%= render 'layouts/header_acbeu' %>
+  <%= yield (:acbeu) %>
+  <% else %> 
+   <%= render 'layouts/header' %>
+  <% end %>
+
   <%= yield %>
 
   <div class="container">
