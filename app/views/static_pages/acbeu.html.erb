@@ -21,28 +21,64 @@
 <!-- http://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html -->
 <% content_for :acbeu do %>
 
+  <style>
+  .text-vertical-center{ 
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  ul {
+    list-style-type: none;
+  }
+  .header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: #eed724;
+/*    background: url(https://gabinete-lembrancas.s3.amazonaws.com/uploads/photo/picture/188/andarai02.jpg) no-repeat center center scroll;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+.btn-red {
+  color: #000;
+  background-color: #e65454;
+  border-color: #ccc;
+}
+.btn-red :hover,
+.btn-red :focus,
+.btn-red :active,
+.btn-red .active,
+.open > .dropdown-toggle.btn-red {
+  color: #333;
+  background-color: #fff;
+  border-color: #adadad;
+}
 
-    <div class="container">
+  </style>
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h2>COMO SE USA</h2>
-        <ul>
-          <li>Faz click na imagem que quiser ouvir</li>
-          <li>NÃO precissa ouvir em baixo volumen, fique a vontade de hinchar o ambente com esses sons e depoimentos</li>
-        </ul>
-        <div class="row">
-          <div class="col-xs-4 col-xs-offset-2">
-            <a class="btn btn-lg btn-primary" href="#navbar" role="button">Depoimentos</a>
+
+    <!-- Header -->
+    <header id="top" class="header">
+        <div class="text-vertical-center">
+            <h1>Bem-vindo à Exposição!</h1>
+            <h3>Aqui você pode <strong> ouvir todos </strong> os documentos de áudio relativos ao nosso projeto </h3>
+            <br>
+          <div class="row">
+            <div class="col-xs-4 col-xs-offset-2">
+              <a class="btn btn-lg btn-red" href="#navbar" role="button">Depoimentos</a>
+            </div>
+            <div class="col-xs-4 ">
+              <a class="btn btn-lg btn-red" href="#navbar" role="button">Sons</a>
+            </div>
           </div>
-          <div class="col-xs-4 ">
-            <a class="btn btn-lg btn-primary" href="#navbar" role="button">Sons</a>
-          </div>
+          
         </div>
-      </div>
+    </header>
 
-    </div> <!-- /container -->
-
+ 
 <div class="container" style="padding-top: 180px">
 <% @gabinete_objects.each_with_index do |gabinete_object, index| %>  
   <div class="col-xs-6 col-md-3 col-lg-2" class="audio-btn" id="obj-<%= index %>" >
