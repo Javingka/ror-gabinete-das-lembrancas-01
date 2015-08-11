@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* added fonts */
+@font-face {
+  font-family: "Alpaca";
+  src: url(Alpaca_Scarlett_Demo.otf) format("truetype");
+}
+
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
