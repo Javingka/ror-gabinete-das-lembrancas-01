@@ -7,6 +7,7 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Expo ID</th>
           <th>Nome</th>
           <th>Descripçao</th>
           <th> <%= link_to 'Exposiçoes', creation_exhibits_path, class: 'btn btn-default' %></th>
@@ -22,6 +23,7 @@
         <% @gabinete_objects.each do |gabinete_object| %>
           <% exh = Exhibit.find_by(id: gabinete_object.exhibit_id) %>
           <tr>
+            <td><%= gabinete_object.expo_ID %></td>
             <td><%= gabinete_object.nome %></td>
             <td><%= gabinete_object.descripcao %></td>
             <td><%= link_to_if !exh.nil?, exh.cidade, exhibit_path(exh) , class: 'btn btn-link'%> </td>
