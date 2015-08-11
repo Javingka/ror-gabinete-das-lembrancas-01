@@ -8,6 +8,11 @@ class GabineteObjectsController < ApplicationController
     @exh 
   end
 
+  def acbeu
+  
+    render 'show_acbeu'
+  end
+
   def creation
     @gabinete_objects = GabineteObject.all
   end

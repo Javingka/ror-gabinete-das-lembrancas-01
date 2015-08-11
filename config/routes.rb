@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     collection do
       get 'creation'
     end
+    member do
+      get :acbeu
+    end
   end
   resources :histories do
     collection do
