@@ -1,12 +1,25 @@
-<header class="navbar navbar-fixed-top " style='border-bottom: 2px solid #000'>
-  <div class="container">
-    <% logo = image_tag("mono_web.png", :alt => "infinitos monos", :class => "logo", size:'80x52') %>
-  	<%= link_to logo, root_path , id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-left">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container" >
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <% logo = image_tag("mono_web.png", :alt => "infinitos monos", :class => "logo", size:'80x52') %>
+  	      <%= link_to logo, root_path , id: "logo", class: "navbar-brand" %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
         <li><%= link_to "Inicio",  root_path , class:"page-scroll", method: :get%></li>
-        <li><%= link_to "O projeto", '#projeto', class:"page-scroll" %></li>
-        <li><%= link_to "Infinitos Monos",  '#infinitos-monos' , class:"page-scroll"%></li>
+
+        
+        <% if current_page? (root_path) %>
+          <li><%= link_to "O projeto", '#projeto', class:"page-scroll" %></li>
+          <li><%= link_to "Infinitos Monos",  '#infinitos-monos' , class:"page-scroll"%></li>
+        <% end %>
 
         <li class="dropdown">
           <a href="#" class="dropdown-toogle" data-toggle="dropdown">
@@ -19,10 +32,10 @@
             <% end %>
           </ul>
         </li>
-      </ul>
-      <% if !get_actual_exp.nil? %>
-       <ul class="nav  navbar-nav navbar-right">
-          <% if !get_actual_exp.video_src.blank? %>
+          </ul>
+          <% if !get_actual_exp.nil? %>
+          <ul class="nav navbar-nav navbar-right">
+      <% if !get_actual_exp.video_src.blank? %>
             <li> <%= link_to 'Video', '#video-expo', class:"page-scroll" %> <li>
           <% end %>
           <li> <%= link_to 'A cidade', '#cidade', class:"page-scroll"%> </li>
@@ -50,9 +63,9 @@
               <% end %>
             </ul>
           </li>
-
-       </ul>
-      <% end %>
+          </ul>
+        <% end %>
+        </div><!--/.nav-collapse -->
+      </div>
     </nav>
-  </div>
-</header>
+

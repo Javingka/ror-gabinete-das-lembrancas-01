@@ -23,6 +23,8 @@
 /spring/*.pid
 
 #ignore gvim editing files (or are buffers?, i don-t know, but just ignore .swp)
+**/*.swn
+**/*.swo
 **/*.swp
 
 #ignore AWS data
