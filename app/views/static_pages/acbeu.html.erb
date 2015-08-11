@@ -63,7 +63,7 @@
   <% @gabinete_objects_chapada.each_with_index do |gabinete_object, index| %>  
     <% @expo = Exhibit.find_by(id: gabinete_object.exhibit_id) %>
     <% letra = " " %>
-    <% if @expo.cidade == "Andarai" %>
+    <% if @expo.cidade == "Andaraí" %>
       <% letra = "A" %>
     <% elsif @expo.cidade == "Morro do Chapéu" %>
       <% letra = "M" %>
