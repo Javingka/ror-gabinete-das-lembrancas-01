@@ -82,21 +82,23 @@
     <% else %>
       <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any? %>
     <% end %>
-        <% if !pic.nil? %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center; position: relative; display: block; height: 600px"> 
+
+    <% if !pic.nil? %>
+      <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center; position: relative; display: block; height: 600px"> 
+        <div class="row">
+          <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.5); margin-top: 200px; height: 200px">
+            <p style="color: yellow; font-family: 'Alpaca'; font-size: 100px; margin-top: 100px"> <%= letra+index.to_s %> <p>
+            <p style="color: yellow; font-family: 'Alpaca'; margin-top: 30px "><%= gabinete_object.nome.upcase %> <p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12" style="position: absolute" class="audio-btn" id="obj-<%= index %>" >
+            <%= link_to image_tag("filtro_transp.png", width:'100%' ), gabinete_object %>
+          </div>
+        </div>
+      </div>
     <% end %>
-    <div class="row">
-      <div class="col-xs-12" style="position: absolute" class="audio-btn" id="obj-<%= index %>" >
-        <%= link_to image_tag("filtro_transparente.png", width:'100%' ), gabinete_object %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.5); margin-top: 200px; height: 200px">
-        <p style="color: yellow; font-family: 'Alpaca'; font-size: 100px; margin-top: 100px"> <%= letra+index.to_s %> <p>
-        <p style="color: yellow; font-family: 'Alpaca'; margin-top: 30px "><%= gabinete_object.nome.upcase %> <p>
-      </div>
-    </div>
-  </div>
+
   <% end %>
 
 <% end %>
