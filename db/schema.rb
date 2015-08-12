@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811222043) do
+ActiveRecord::Schema.define(version: 20150812205016) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comentario"
@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(version: 20150811222043) do
     t.string   "datainicio"
     t.string   "datafim"
     t.string   "local"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "map"
     t.text     "descripcion"
     t.string   "video_src"
+    t.boolean  "public",      default: true
   end
 
   create_table "gabinete_objects", force: :cascade do |t|

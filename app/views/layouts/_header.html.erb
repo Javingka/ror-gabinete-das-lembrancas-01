@@ -28,7 +28,9 @@
           <ul class="dropdown-menu">
             <% exps = get_exposicoes %>
             <% exps.each do |exhibit| %>
-              <li>  <%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get' %> </li>
+              <% if exhibit.public %>
+                <li>  <%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get' %> </li>
+              <% end %>
             <% end %>
           </ul>
         </li>
