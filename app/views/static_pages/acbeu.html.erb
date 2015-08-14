@@ -91,27 +91,75 @@
 
     <% if !pic.nil? %>
       <div id ="acbeu-id_<%= gabinete_object.expo_ID %>" class="img-gal col-xs-12" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center; position: relative; display: block; height: 600px"> 
-        <div class="row">
-          <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.5); margin-top: 150px; height: 300px">
+        <div class="row  ui360 ui360-vis ">
+            <a href="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/MONALISA.mp3" style="position: absolute"  >
+          <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.5); margin-top: 150px; height: 300px; width: 600px">
             <p style="color: yellow; font-family: 'Alpaca'; font-size: 160px; margin-top: 120px"> <%= letra+" "+ gabinete_object.expo_ID.to_s %> <p>
             <p style="color: yellow; font-family: 'Alpaca'; font-size: 40px; margin-top: 60px; line-height: 100% "><%= gabinete_object.nome.upcase %> <p>
           </div>
+            </a>
         </div>
         <div class="row">
           <div class="col-xs-12" style="position: absolute" class="audio-btn" id="obj-<%= index %>" >
-            <!--  <%= link_to image_tag("filtro_transp.png", width:'100%', :alt => " "), gabinete_object %> -->
+            <!--  <%= link_to image_tag("filtro_transp.png", width:'100%', :alt => " "), "#obj-#{index}", id: "obj-#{index}" %>  -->
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-3 col-xs-offset-1" style="position: absolute; margin-top:150px">
-            <div class="ui360 ui360-vis">
-              <a href="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/MONALISA.mp3"> </a>
-            </div>
+          <div class="col-xs-12 ui360 ui360-vis audio-btn" style="position: absolute; margin-top:0px" >
+
+          <!--        <a href="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/MONALISA.mp3" title="Play &quot;Office Lobby&quot;" class="sm2_button">Office Lobby</a> -->
+
           </div>
         </div>
-
       </div>
     <% end %>
 
   <% end %>
 <% end %>
+
+<script>
+  soundManager.debugMode = false
+  soundManager.flashVersion = 9
+  soundManager.multiShot = false
+  soundManager.url = "<%= asset_path('soundmanager2.swf') %>"
+  soundManager.useHTML5Audio = true
+  soundManager.consoleOnly = true
+
+
+soundManager.setup({
+
+    onready: function() {
+    /*  document.getElementById("obj-0").addEventListener("click", function(){
+       // SM2 has loaded, API ready to use e.g., createSound() etc.
+      var mySound = soundManager.createSound({
+          id: 'id_som',
+          url: 'https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/FOTOS_DISCO+VOADOR.mp3',
+          // begin loading right away
+          autoLoad: true,
+          whileloading: function() {
+            soundManager._writeDebug(this.id + ': loading ' + this.bytesLoaded + ' / ' + this.bytesTotal);
+          }
+         });
+         mySound.play();
+         
+
+      }); */
+   },
+
+    ontimeout: function() {
+      // Uh-oh. No HTML5 support, SWF missing, Flash blocked or other issue
+    }
+
+});
+
+threeSixtyPlayer.config = {
+  playNext: false, // stop after one sound, or play through list until end
+  autoPlay: false, // start playing the first sound right away
+  allowMultiple: true, // let many sounds play at once (false = one at a time)
+  loadRingColor: '#ccc',// amount of sound which has loaded
+  playRingColor: '#000', // amount of sound which has played
+  backgroundRingColor: '#eee', // "default" color shown underneath everything else
+  animDuration: 500,
+  animTransition: Animator.tx.bouncy// http://www.berniecode.com/writing/animator.html
+}
+</script>
