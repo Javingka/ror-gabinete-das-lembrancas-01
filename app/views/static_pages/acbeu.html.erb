@@ -92,7 +92,7 @@
     <% if !pic.nil? %>
       <div id ="acbeu-id_<%= gabinete_object.expo_ID %>" class="img-gal col-xs-12" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center; position: relative; display: block; height: 600px"> 
         <div class="row ui360 ui360-vis" style="margin-left: 50px;margin-top: 200px">
-          <a href="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/MONALISA.mp3">
+          <a href="<%= gabinete_object.audio_link %>">
             <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.5); margin-top: -40px; height: 300px; width: 800px; margin-left: -300px">
             <p style="color: yellow; font-family: 'Alpaca'; font-size: 160px; margin-top: 120px; margin-left: 300px"> <%= letra+" "+ gabinete_object.expo_ID.to_s %> <p>
             <p style="color: yellow; font-family: 'Alpaca'; font-size: 40px; margin-top: 60px; line-height: 100%;margin-left: 300px "><%= gabinete_object.nome.upcase %> <p>
