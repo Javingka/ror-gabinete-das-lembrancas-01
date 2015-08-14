@@ -12,6 +12,7 @@
           <th>Descripçao</th>
           <th> <%= link_to 'Exposiçoes', creation_exhibits_path, class: 'btn btn-default' %></th>
           <th>Numero de fotos</th>
+          <th>Tem áudio?</th>
           <th>Numero de memorias</th>
           <th>Dono(a)</th>
           <th>idade</th>
@@ -28,6 +29,7 @@
             <td><%= gabinete_object.descripcao %></td>
             <td><%= link_to_if !exh.nil?, exh.cidade, exhibit_path(exh) , class: 'btn btn-link'%> </td>
             <td><%= gabinete_object.photos.count %> </td>
+            <td><%= !gabinete_object.audio_link.blank? %> </td>
             <td><%= gabinete_object.histories.count %> </td>
             <td><%= gabinete_object.pessoa %> </td>
             <td><%= gabinete_object.idade %> </td>
