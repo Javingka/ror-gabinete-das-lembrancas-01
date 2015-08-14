@@ -4,3 +4,49 @@
 <h1>ABCEU OBJETO PAGINA </h1>
 
 <% end %>
+
+<script>
+  soundManager.debugMode = false
+  soundManager.flashVersion = 9
+  soundManager.multiShot = false
+  soundManager.url = "<%= asset_path('soundmanager2.swf') %>"
+  soundManager.useHTML5Audio = true
+  soundManager.consoleOnly = true
+
+
+soundManager.setup({
+
+    // where to find the SWF files, if needed
+    url: '/path/to/swf-directory/',
+
+    onready: function() {
+      // SM2 has loaded, API ready to use e.g., createSound() etc.
+      var mySound = soundManager.createSound({
+          id: 'id_som',
+          url: 'https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/FOTOS_DISCO+VOADOR.mp3',
+          // begin loading right away
+          autoLoad: true,
+          whileloading: function() {
+            soundManager._writeDebug(this.id + ': loading ' + this.bytesLoaded + ' / ' + this.bytesTotal);
+          }
+         });
+      mySound.play();
+    },
+
+    ontimeout: function() {
+      // Uh-oh. No HTML5 support, SWF missing, Flash blocked or other issue
+    }
+
+});
+
+threeSixtyPlayer.config = {
+  playNext: false, // stop after one sound, or play through list until end
+  autoPlay: false, // start playing the first sound right away
+  allowMultiple: true, // let many sounds play at once (false = one at a time)
+  loadRingColor: '#ccc',// amount of sound which has loaded
+  playRingColor: '#000', // amount of sound which has played
+  backgroundRingColor: '#eee', // "default" color shown underneath everything else
+  animDuration: 500,
+  animTransition: Animator.tx.bouncy// http://www.berniecode.com/writing/animator.html
+}
+</script>

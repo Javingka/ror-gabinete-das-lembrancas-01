@@ -25,5 +25,9 @@ module Gabineteweb01
 
     # Para agregar as fontes no pipeline 
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # Para uso de asset_path helper na entrega dos arquivos .swf do gem SoundManager2
+    config.assets.precompile += %w(soundmanager2.swf soundmanager2_flash9.swf)
+
   end
 end

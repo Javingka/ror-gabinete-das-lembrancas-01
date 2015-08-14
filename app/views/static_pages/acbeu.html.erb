@@ -1,6 +1,7 @@
 <!-- http://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html -->
 <% content_for :acbeu do %>
 
+
   <style>
   .text-vertical-center{ 
     color: #fff;
@@ -39,6 +40,12 @@
   border-color: #adadad;
 }
 
+.ui360,
+.sm2-360ui {
+  /* size of the container for the circle, etc. */
+  width: 600px;
+  height:600px;
+}
   </style>
 
 
@@ -92,15 +99,19 @@
         </div>
         <div class="row">
           <div class="col-xs-12" style="position: absolute" class="audio-btn" id="obj-<%= index %>" >
-            <%= link_to image_tag("filtro_transp.png", width:'100%', :alt => " "), gabinete_object %>
+            <!--  <%= link_to image_tag("filtro_transp.png", width:'100%', :alt => " "), gabinete_object %> -->
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-3 col-xs-offset-1" style="position: absolute; margin-top:150px">
+            <div class="ui360 ui360-vis">
+              <a href="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/audios/m/MONALISA.mp3"> </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     <% end %>
 
   <% end %>
-
 <% end %>
-
-<script>
- </script>  
