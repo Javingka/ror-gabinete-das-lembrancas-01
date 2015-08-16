@@ -194,7 +194,7 @@
 <div id="links">
   <% @fotos_montagem.each do |f| %>
  
-    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px; margin-bottom: 10px">
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center; background-size: 100%;  height:150px; margin-bottom: 10px">
       <a href="<%= f.picture.url %>" style="background-color: transparent; height:150px" class= "thumbnail" title=" " data-gallery>
       </a>
     </div>
