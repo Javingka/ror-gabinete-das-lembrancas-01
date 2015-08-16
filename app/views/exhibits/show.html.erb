@@ -1,9 +1,10 @@
 <!-- IMAGEM DE INICIO -->
-<div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
+<!-- <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
   <div class="espaco-imagem"> 
   <h1> </h1>
   </div>
 </div>
+-->
 
 <!-- VIDEO -->
 <% if !@exhibit.video_src.blank? %>
@@ -19,9 +20,9 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 text-center ">
-        <h3 class="titulo"> <%= @exhibit.cidade %> </h3>
-        <h4> do <%= @exhibit.datainicio %> à <%= @exhibit.datafim %> </h4>
-        <h4> <%= @exhibit.local %> </h4>
+        <h1 class="titulo"> <%= @exhibit.cidade.upcase %> </h1>
+        <h4 class="texto-interno"> do <%= @exhibit.datainicio %> à <%= @exhibit.datafim %> </h4>
+        <h4 class="texto-interno"> <%= @exhibit.local %> </h4>
       </div>
     </div>
     <!-- /.row -->
@@ -40,8 +41,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12 ">
-        <h3 class="titulo text-center"> A Exposição </h3>
-        <%=simple_format(@exhibit.descripcion) %>
+        <h3 class="titulo-int text-center"> A EXPOSIÇÃO </h3>
+        <p class="texto-interno"><%=simple_format(@exhibit.descripcion) %></p>
       </div>
     </div>
     <!-- /.row -->
@@ -82,9 +83,9 @@
 </div>
 
 <!-- GALERIA NOVA -->
+<h2 class="titulo-int " style="text-align: center">OBJETOS E SUAS HISTÓRIAS </h2>
 <div id="galeria-obj" class="container-fluid" style="background-color: black"> 
   <% if @gabinete_objects_all.any? %>
-  <h2 style="color: rgb(200,200,200); text-align: center"> Objetos e suas histórias </h2>
   <div class="row">
     <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>  
         <% gabinete_object.photos.each do |ima| %>
@@ -203,7 +204,7 @@
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="expo-gallery" class="container">
 <div class='jumbotron row'>
-  <h2>Galeria de imagens</h2>
+  <h2 class="titulo-int">GALERIA DE IMAGENS </h2>
   <br>
   <div id="blueimp-gallery" class="blueimp-gallery">
     <!-- The container for the modal slides -->
@@ -264,7 +265,7 @@
 </div>
 
 <div id='comentarios' class='jumbotorn'>
-  <h1 class='titulo'>Livro de visitas</h1>
+  <h1 class='titulo-int'> LIVRO DE VISITAS </h1>
   
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
@@ -287,15 +288,15 @@
                 <% next %>
               <% end %>
               <tr>
-                <td><%= comment.comentario %> <%= comment.pessoa %> </td>
+                <td  class="titulo-int"><%= comment.comentario %> <%= comment.pessoa %> </td>
               </tr>
             <% end %>
           <% end %>
           <% soNomeCom.each do |comment| %>
-             <tr><td><%= comment.comentario %> <%= comment.pessoa %> </td> </tr>
+             <tr><td class="titulo-int"><%= comment.comentario %> <%= comment.pessoa %> </td> </tr>
           <% end %>
           <% blankCom.each do |comment| %>
-            <tr><td><%= comment.comentario %> </td> </tr>
+            <tr><td class="titulo-int"><%= comment.comentario %> </td> </tr>
           <% end %>
         </tbody>
       </table>

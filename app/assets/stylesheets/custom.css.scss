@@ -6,6 +6,15 @@
   font-family: "Alpaca";
   src: asset-url("Alpaca_Scarlett_Demo.otf") format("truetype");
 }
+@font-face {
+  font-family: "Museo500";
+  src: asset-url("Museo500-Regular.otf") format("truetype");
+}
+@font-face {
+  font-family: "Museo100";
+  src: asset-url("MuseoSans-100.otf") format("truetype");
+}
+
 
 /* mixins, variables, etc. */
 
@@ -51,7 +60,17 @@ textarea {
 /* typography */
 
 .titulo {
+ font-family: 'Alpaca',Arial,Helvetica,Sans-Serif;
   margin-top: 70px; //margin para nao ficar detras do navegador na hora do scroll
+}
+.texto-menu {
+ font-family: 'Alpaca',Arial,Helvetica,Sans-Serif;
+}
+.texto-interno {
+ font-family: 'Museo100',Arial,Helvetica,Sans-Serif;
+}
+.titulo-int {
+ font-family: 'Museo500',Arial,Helvetica,Sans-Serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
