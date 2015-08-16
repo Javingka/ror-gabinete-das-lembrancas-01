@@ -101,21 +101,21 @@
 
 
         <% if !pic.nil? %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-6" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px"> <!-- background-size: 100%; -->'
+          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-6" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  height:auto"> <!-- background-size: 100%; -->'
      <!--          <%= link_to image_tag( pic.url, width:'100%' ), gabinete_object %> -->
         <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-6" style="background-color: gray ">
         <% end %>
           <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: hidden; background-color: rgba(0,0,0,.7); round:10px">
+            <h3 class="titulo-int" style="color: rgb(220,220,220); text-align: center; margin-top: 5px" > <strong> <%= gabinete_object.nome.upcase %> </strong> </h3>
+            <h4 class="titulo-int" style="color: rgb(200,200,200); text-align: center" > <%= gabinete_object.pessoa %> |
+            <%= gabinete_object.idade %> anos </h4>
+            <p class="his-preview texto-interno" style="color: white; font-size:15px; margin: 5px" > <i> <%= his if !his.nil? %></i> </p>
             <div class="row">
             <div class="col-xs-8 col-xs-offset-2" >
-              <%= link_to 'História', gabinete_object, class:'btn btn-primary', style: "background-color: rgba(0,0,0,.9); margin-top: 5px " %>
+              <%= link_to 'MAIS', gabinete_object, class:'btn btn-primary titulo-int', style: "color: #fff;background-color: rgba(0,0,0,.9); margin-top: 5px; margin-bottom: 20px " %>
             </div>
             </div>
-            <h3 style="color: rgb(220,220,220); text-align: center" > <strong> <%= gabinete_object.nome %> </strong> </h3>
-            <h4 style="color: rgb(200,200,200); text-align: center" > <%= gabinete_object.pessoa %> |
-            <%= gabinete_object.idade %> </h4>
-            <p class="his-preview" style="color: white; font-size:15px; margin: 5px" > <i> <%= his if !his.nil? %></i> </p>
           </div>
         </div>
     <% end %>
