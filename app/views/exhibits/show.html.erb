@@ -152,57 +152,8 @@
   
 <% end %>
 
-<!-- GALERIA DE OBJETOS -->
-<!--
-<div id="galeria-obj" class="container">
-<div class='jumbotron row'>
-  <h2> Objetos e suas histórias </h2>
-  <div class="col-md-12 ">
-    <% if @gabinete_objects.any? %>
-      <%= will_paginate @gabinete_objects,:params => {:anchor => "galeria-objs"}%>
-      <ol class="content gabinete-objects">
-        <% @gabinete_objects.each do |gabinete_object| %>  
-          <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any?%>
-          <% his = gabinete_object.histories.first.frase if gabinete_object.histories.any?%>
-          <li id="gabinete_object-<%= gabinete_object.id %>" >
-            <div class="row">
-              <div class="col-md-8">
-                <span class="content">
-                  <% if !pic.nil? %>
-                    <%= link_to image_tag( pic.url), gabinete_object %>
-                  <% end %>
-                </span>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <h3> <strong> <%= gabinete_object.nome %> </strong> </h3>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 centered">
-                    <h4> <%= gabinete_object.pessoa %> |
-                    <%= gabinete_object.idade %> </h4>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 centered">
-                    <p class="his-preview"> <i> <%= his if !his.nil? %></i> </p>
-                  <%= link_to 'História', gabinete_object, class:'btn btn-default' %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ol>
-      <%= will_paginate @gabinete_objects,:params => {:anchor => "galeria-objs"} %>
-    <% end %>
-  </div>
-</div>
-</div>
--->
-
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-<div id="expo-gallery" class="container">
+<div id="expo-gallery" class="container-fluid">
 <div class='jumbotron row'>
   <h2 class="titulo-int">GALERIA DE IMAGENS </h2>
   <br>
@@ -242,24 +193,29 @@
 
 <div id="links">
   <% @fotos_montagem.each do |f| %>
-    <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url, width: 'auto', height: '100px' %>
-    </a>
+ 
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px; margin-bottom: 10px">
+      <a href="<%= f.picture.url %>" style="background-color: transparent; height:150px" class= "thumbnail" title=" " data-gallery>
+      </a>
+    </div>
   <% end %>
   <% @fotos_exposicao.each do |f| %>
-    <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url,  width: 'auto', height: '100px' %>
-    </a>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px; margin-bottom: 10px">
+      <a href="<%= f.picture.url %>" style="background-color: transparent; height:150px" class= "thumbnail" title=" " data-gallery>
+      </a>
+    </div>
   <% end %>
    <% @fotos_coleta.each do |f| %>
-    <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url,  width: 'auto', height: '100px' %>
-    </a>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px; margin-bottom: 10px">
+      <a href="<%= f.picture.url %>" style="background-color: transparent; height:150px" class= "thumbnail" title=" " data-gallery>
+      </a>
+    </div>
   <% end %>
   <% @fotos_cidade.each do |f| %>
-    <a href="<%= f.picture.url %>" title=" " data-gallery>
-      <%= image_tag f.picture.url,  width: 'auto', height: '100px' %>
-    </a>
+    <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center;  height:150px; margin-bottom: 10px">
+      <a href="<%= f.picture.url %>" style="background-color: transparent; height:150px" class= "thumbnail" title=" " data-gallery>
+      </a>
+    </div>
   <% end %>
 </div>
 </div>
