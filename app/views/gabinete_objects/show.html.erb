@@ -1,30 +1,33 @@
 <!-- IMAGEM DE INICIO -->
-<div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed;"> 
-<div id="lembranca" class="container" style="position: absolute">
-  <div class=" row">
-      <div class="col-xs-3">
-        <section class="">
-          <h1 class="titulo" style="background-color: rgba(0,0,0,.5)"><%= @gabinete_object.pessoa %> </h1>
-        </section>
-        <section class="stats">
-          <% if @gabinete_object.idade != '' %>
-            <h2 class="titulo-int" style="background-color: rgba(0,0,0,.5)"> <%= @gabinete_object.idade %> anos </h2>
-          <% end%>
-        </section>
-        <section>
-          <h3 class="titulo-int text-center" style="background-color: rgba(0,0,0,.5)"> <%= @gabinete_object.nome %></h3>
-        </section>
-        <hr >
-
-    </div>
-      <div class="col-md-9" style="background-color: rgba(0,0,0,.5)">
-        <h3>  </h3>
-        <%=  simple_format(@gabinete_object.histories.first.memoria, class: "texto-interno") %>
-      </div>
+<div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
+  <div class="espaco-imagem"> 
   </div>
 </div>
 <br>
-</div>
+<div id="lembranca" class="container-fluid">
+  <div class="jumbotron row">
+      <div class="col-md-3">
+      <aside>
+        <section class="user_info">
+          <h1 class="titulo"><%= @gabinete_object.pessoa %> </h1>
+        </section>
+        <section class="stats">
+          <% if @gabinete_object.idade != '' %>
+            <h2 class="titulo-int"> <%= @gabinete_object.idade %> anos </h2>
+          <% end%>
+        </section>
+        <section>
+          <h3 class="titulo-int"> <%= @gabinete_object.nome %></h3>
+        </section>
+        <hr >
+      </aside>
+      </div>
+      <div class="col-md-9">
+        <h3>  </h3>
+        <%=  simple_format(@gabinete_object.histories.first.memoria, class: "texto-interno") %>
+      </div>
+   </div>
+ </div>
 
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
 <div id="imagen-obj" class="container-fluid">
