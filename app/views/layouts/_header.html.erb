@@ -37,10 +37,10 @@
           </ul>
           <% if !get_actual_exp.nil? %>
           <ul class="nav navbar-nav navbar-right">
+          <li class="texto-menu"> <%= link_to 'A cidade', '#cidade', class:"page-scroll"%> </li>
       <% if !get_actual_exp.video_src.blank? %>
             <li class="texto-menu"> <%= link_to 'Video', '#video-expo', class:"page-scroll" %> <li>
           <% end %>
-          <li class="texto-menu"> <%= link_to 'A cidade', '#cidade', class:"page-scroll"%> </li>
           <li class="texto-menu"> <%= link_to 'A exposição' ,'#a-expo', class:"page-scroll"%> </li>
           <li class="texto-menu"> <%= link_to 'A coleção' ,'#galeria-obj', class:"page-scroll"%> </li>
           <li class="texto-menu"> <%= link_to 'Imagens' ,'#expo-gallery', class:"page-scroll"%> </li>

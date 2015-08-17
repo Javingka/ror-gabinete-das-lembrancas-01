@@ -1,18 +1,9 @@
 <!-- IMAGEM DE INICIO -->
-<!-- <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
+ <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
   <div class="espaco-imagem"> 
   <h1> </h1>
   </div>
 </div>
--->
-
-<!-- VIDEO -->
-<% if !@exhibit.video_src.blank? %>
-    <div class='myIframe' id="video-expo" > 
-      <iframe src="<%=@exhibit.video_src %>" frameborder="0" allowfullscreen></iframe>
-    </div>
-  <br>
-<% end %>
 
 <!-- INFO DA CIDADE --> 
 <div id="cidade" class="about">
@@ -34,6 +25,14 @@
     <br />
 </div>
 <br><br><br>
+
+<!-- VIDEO -->
+<% if !@exhibit.video_src.blank? %>
+    <div class='myIframe' id="video-expo" > 
+      <iframe src="<%=@exhibit.video_src %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <br>
+<% end %>
 
 <!-- TITULO PARA MOSTRA DA EXPOSIÇÃO   -->  
 <div id="a-expo" class="about">
@@ -273,10 +272,21 @@
 
 
 <script src="//blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-<script src="js/bootstrap-image-gallery.min.js"></script>
 
 <script>
   $('.carousel').carousel({
    interval: 5000
   });
- </script>   
+  $(document).on('ready page:load', function () {
+    // Actions to do
+    navigationFn.goToSection('#cidade');
+  });
+
+  var navigationFn = {
+    goToSection: function(id) {
+    $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 2000);
+    }
+  }
+</script>
