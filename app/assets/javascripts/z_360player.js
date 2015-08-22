@@ -322,6 +322,7 @@ function ThreeSixtyPlayer() {
       pl.removeClass(this._360data.oUIBox,this._360data.className);
       this._360data.className = '';
       self.fanIn(this);
+
     },
 
     pause: function() {
@@ -337,6 +338,8 @@ function ThreeSixtyPlayer() {
     },
 
     finish: function() {
+    $('.play-b').show();
+    $('.pause-b').hide();
       var nextLink;
       pl.removeClass(this._360data.oUIBox,this._360data.className);
       this._360data.className = '';

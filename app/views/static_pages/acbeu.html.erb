@@ -101,10 +101,10 @@
            </div>
         </div>
         <div class="row ui360 ui360-vis" style="margin-left: 50px;margin-top: 70px">
-          <a href="<%= gabinete_object.audio_link %>" onclick='$("img").toggle(); '>
+          <a href="<%= gabinete_object.audio_link %>"  onClick="reply_click(this.id)" id= "playpause-<%= index %>" >
             <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.2); margin-top: -40px; height: 300px; width: 700px; margin-left: -300px">
-              <%= image_tag("media-play-8x.png", style: "margin-top: 100px; float: right; margin-right: '50px'", id: "play-#{index}" ) %>
-              <%= image_tag("media-pause-8x.png", style: "margin-top: 100px;float: right;  margin-right: '50px'", id: "play-#{index}", hidden: 'true' ) %>
+              <%= image_tag("media-play-8x.png", class: 'play-b', style: "margin-top: 100px; float: right; margin-right: '50px'"  ) %>
+              <%= image_tag("media-pause-8x.png", class: 'pause-b', style: "margin-top: 100px;float: right;  margin-right: '50px'", hidden: 'true' ) %>
  <!--             <p style="color: yellow; font-family: 'Alpaca'; font-size: 160px; margin-top: 120px; margin-left: 300px"> <%= letra+" "+ gabinete_object.expo_ID.to_s %> <p>
               <p style="color: yellow; font-family: 'Alpaca'; font-size: 40px; margin-top: 60px; line-height: 100%;margin-left: 300px "><%= gabinete_object.nome.upcase %> <p> -->
             </div>
@@ -128,7 +128,28 @@
   <div id="trilhas"> Aqui as trilhas </div>
 
 <% end %>
+<%= javascript_tag do %>
+function reply_click(clicked_id)
+{
+    idc =  '#'+clicked_id;
 
+/*    $('.play-b').show();*/
+/*    $('.pause-b').hide();*/
+
+  <% @gabinete_objects_chapada.each_with_index do |gabinete_object, index| %>  
+    idt = '#playpause-<%= index%>';
+    if (idt != idc) { 
+      $(idt).find("div").find('.play-b').show();  
+      $(idt).find("div").find('.pause-b').hide();  
+    } else  {
+    console.log (idt + " " + idc);
+      $(idc).find("img").toggle();  
+      }
+
+  <% end %>
+   /* alert(idc);*/
+   /* $(idc).find("img").toggle();  */
+}
+<% end %>
 <script>
-  
  </script>  
