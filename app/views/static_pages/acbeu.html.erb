@@ -57,7 +57,7 @@
             <h3 style="font-family: 'Alpaca'">Fique a vontade de usar alto falante na exposição</h3>
             <br>
           <div class="row">
-            <div class="col-xs-12 col-md-4 col-md-offset-2">
+            <div class="col-xs-12"> <!--  col-md-4 col-md-offset-2"> -->
               <a class="btn btn-lg btn-red page-scroll" style="font-size: 30px; margin-top: 5px" href="#lista-para-audio" role="button">HISTÓRIAS</a>
             </div>
             <div class="col-xs-12 col-md-4  ">
@@ -92,12 +92,23 @@
 
     <% if !pic.nil? %>
       <div id ="acbeu-id_<%= gabinete_object.expo_ID %>" class="img-gal col-xs-12" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center; position: relative; display: block; height: 600px"> 
-        <div class="row ui360 ui360-vis" style="margin-left: 50px;margin-top: 200px">
-          <a href="<%= gabinete_object.audio_link %>">
-            <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.5); margin-top: -40px; height: 300px; width: 800px; margin-left: -300px">
-            <p style="color: yellow; font-family: 'Alpaca'; font-size: 160px; margin-top: 120px; margin-left: 300px"> <%= letra+" "+ gabinete_object.expo_ID.to_s %> <p>
-            <p style="color: yellow; font-family: 'Alpaca'; font-size: 40px; margin-top: 60px; line-height: 100%;margin-left: 300px "><%= gabinete_object.nome.upcase %> <p>
-          </div></a>
+        <div class="row">
+          <div class="col-xs-4 ">
+              <p style="color: yellow; font-family: 'Alpaca'; font-size: 120px; margin-top: 100px; "> <%= letra+" "+ gabinete_object.expo_ID.to_s %> </p>
+           </div>
+          <div class="col-xs-4 ">
+              <p style="color: yellow; font-family: 'Alpaca'; font-size: 40px; margin-top: 60px; line-height: 100%;  "><%= gabinete_object.nome.upcase %> </p>
+           </div>
+        </div>
+        <div class="row ui360 ui360-vis" style="margin-left: 50px;margin-top: 70px">
+          <a href="<%= gabinete_object.audio_link %>" onclick='$("img").toggle(); '>
+            <div class="col-xs-6 col-xs-offset-6 text-vertical-center " style="position: absolute; background-color: rgba(0,0,0,.2); margin-top: -40px; height: 300px; width: 700px; margin-left: -300px">
+              <%= image_tag("media-play-8x.png", style: "margin-top: 100px; float: right; margin-right: '50px'", id: "play-#{index}" ) %>
+              <%= image_tag("media-pause-8x.png", style: "margin-top: 100px;float: right;  margin-right: '50px'", id: "play-#{index}", hidden: 'true' ) %>
+ <!--             <p style="color: yellow; font-family: 'Alpaca'; font-size: 160px; margin-top: 120px; margin-left: 300px"> <%= letra+" "+ gabinete_object.expo_ID.to_s %> <p>
+              <p style="color: yellow; font-family: 'Alpaca'; font-size: 40px; margin-top: 60px; line-height: 100%;margin-left: 300px "><%= gabinete_object.nome.upcase %> <p> -->
+            </div>
+          </a>
         </div>
         <div class="row">
           <div class="col-xs-12" style="position: absolute" class="audio-btn" id="obj-<%= index %>" >
@@ -119,5 +130,5 @@
 <% end %>
 
 <script>
-
+  
  </script>  
