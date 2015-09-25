@@ -6,7 +6,7 @@
 <br>
 <div id="lembranca" class="container-fluid">
   <div class="jumbotron row">
-      <div class="col-md-3">
+      <div class="col-md-3"style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; ">
       <aside>
         <section class="user_info">
           <h1 class="titulo"><%= @gabinete_object.pessoa %> </h1>
@@ -19,11 +19,22 @@
         <section>
           <h3 class="titulo-int"> <%= @gabinete_object.nome %></h3>
         </section>
+        <hr>
+      </br>
+      <% if !@gabinete_object.audio_link.nil? %>
+      <h2 class="titulo-int"> Para <strong> OUVIR </strong> o depoimento. Click abaixo  </h2>
+          <div class="row" ><div class="col-xs-2 col-xs-offset-4">
+          <div class="ui360" >
+            <a href="<%= @gabinete_object.audio_link %>"  onClick="reply_click(this.id)" id= "playpause-<%= @gabinete_object.nome %>" >
+            </a>
+          </div>
+        </div></div>
+    <% end %>
         <hr >
       </aside>
       </div>
       <div class="col-md-9">
-        <h3>  </h3>
+       <h3>  </h3>
         <%=  simple_format(@gabinete_object.histories.first.memoria, class: "texto-interno") %>
       </div>
    </div>
