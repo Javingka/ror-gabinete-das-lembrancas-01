@@ -19,7 +19,7 @@
 
   <div class="jumbotron row">
     <% if !@imagem_cara.nil? %>
-      <div class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>') no-repeat; background-position: center; height: 500px; ">
+      <div id="imgNome" class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>') fixed; background-position: -206px center; height: 480; ">
     <% else %>
       <div class="col-md-3"style="background-color: rgba(50,50,50, .2) ">
     <% end %>
@@ -38,7 +38,7 @@
       </br>
       </aside>
       </div>
-      <div class="col-md-9">
+      <div id="historia" class="col-md-9">
        <h3>  </h3>
         <%=  simple_format(@gabinete_object.histories.first.memoria, class: "texto-interno") %>
       </div>
@@ -101,7 +101,18 @@
 <script>
 $(document).on('ready page:load', function () {
   // Actions to do
+   var h = $("#historia").height();
+   $("#imgNome").height(h);
    navigationFn.goToSection('#lembranca');
+   $("#imgNome").mousemove(function( event ) {
+     var mx = event.pageX ;
+     console.log("mx: " + mx);
+     var p = (mx - 60) / (366-60);
+     p = p * 412;
+     var bp = ( -p +'px  center');
+     console.log("backgroundpos: " + bp); 
+     $("#imgNome").css( 'background-position', bp  );
+   });
 });
 
   $(document).ready(function(){  
