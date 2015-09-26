@@ -65,7 +65,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3 col-xs-offset-5">
-      <h3 class="titulo-int"> <    Compartilha essa Lembrança   >  </h3>
+      <h3 class="titulo-int"> <    Compartilha essa lembrança   >  </h3>
       <% if !@imagem_portada.nil? %>
         <%= image_tag @imagem_portada.picture.url, hidden: true if @imagem_portada.picture? %>
         <%= social_share_button_tag("#{@gabinete_object.nome}  | #{@expo.cidade} | Gabinete das Lembranças", :image => @imagem_portada.picture.url , :'data-type' => 'photo', 'data-twitter-title' => "#{@gabinete_object.nome}  | #{@expo.cidade} | Gabinete das Lembranças", :via => "Javingka") %>
