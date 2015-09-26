@@ -46,6 +46,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#To share on social networks
+gem 'social-share-button'
 
 # Gem para incluir audios no site com SoundManager 2 
 gem 'soundmanager2-rails'
