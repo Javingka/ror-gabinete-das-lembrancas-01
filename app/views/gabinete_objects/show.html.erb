@@ -108,7 +108,7 @@ $(document).on('ready page:load', function () {
      var mx = event.pageX ;
      console.log("mx: " + mx);
      var p = 1 - (mx - 60) / (366-60);
-     p = p * - 308;
+     p = 412 + (p * -412);
      var bp = ( -p +'px  center');
      console.log("backgroundpos: " + bp); 
      $("#imgNome").css( 'background-position', bp  );
