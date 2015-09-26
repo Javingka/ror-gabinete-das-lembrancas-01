@@ -1,3 +1,10 @@
+<% content_for :meta_tags do %>
+  <% if !@imagem_portada.nil? %>
+    <meta property="og:image" content="<%=  @imagem_portada.picture.url %>" />
+  <% end %>
+<% end %>
+
+
 <!-- IMAGEM DE INICIO -->
 <div class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
   <div class="espaco-imagem"> 
