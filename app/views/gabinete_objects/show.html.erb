@@ -7,9 +7,9 @@
 <div id="lembranca" class="container-fluid">
   <div class="jumbotron row">
     <% if !@imagem_cara.nil? %>
-      <div class="col-md-3"style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat; background-position: center; ">
+      <div class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>') no-repeat; background-position: center; ">
     <% else %>
-      <div class="col-md-3"style="background-color: rgba(50,50,50, .8) ">
+      <div class="col-md-3"style="background-color: rgba(50,50,50, .2) ">
     <% end %>
       <aside>
         <section class="user_info">
