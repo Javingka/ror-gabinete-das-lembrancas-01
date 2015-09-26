@@ -50,7 +50,6 @@
   <div class="row">
     <div class="col-xs-3 col-xs-offset-5">
       <% if !@imagem_portada.nil? %>
-        <meta property="og:image" content=:"<%=  @imagem_portada.picture.url %>" />
         <%= image_tag @imagem_portada.picture.url, hidden: true if @imagem_portada.picture? %>
         <%= social_share_button_tag("Moto Custom tipo photo", :image => @imagem_portada.picture.url , 'data-type' => 'photo') %>
       <% end %>
