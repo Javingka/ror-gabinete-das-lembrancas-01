@@ -49,7 +49,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3 col-xs-offset-5">
-      <%= social_share_button_tag(@gabinete_object.nome) %>
+      <% if !@imagem_portada.nil? %>
+      <%= social_share_button_tag("Moto Custom tipo photo", :'data-source' => @imagem_portada.picture.url , :'data-type' => 'photo') %>
+    <% end %>
+      <!--     <%= social_share_button_tag(@gabinete_object.nome) %>-->
 </div>
 </div>
 </div>
