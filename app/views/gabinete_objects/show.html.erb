@@ -107,8 +107,8 @@ $(document).on('ready page:load', function () {
    $("#imgNome").mousemove(function( event ) {
      var mx = event.pageX ;
      console.log("mx: " + mx);
-     var p = 1 - (mx - 60) / (366-60);
-     p = 412 + (p * -412);
+     var p = 1 - ( (mx - 60) / (366-60) );
+     p = 350 + (p * -350);
      var bp = ( -p +'px  center');
      console.log("backgroundpos: " + bp); 
      $("#imgNome").css( 'background-position', bp  );
