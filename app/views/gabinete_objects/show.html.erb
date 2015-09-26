@@ -2,6 +2,15 @@
   <% if !@imagem_portada.nil? %>
     <meta property="og:image" content="<%=  @imagem_portada.picture.url %>" />
   <% end %>
+
+  <% his = @gabinete_object.histories.first.frase if @gabinete_object.histories.any?%>
+  <% if !@gabinete_object.nil? %>
+    <meta property="og:description"  content="<%= his if !his.nil? %> " />
+    <meta content="<%= @gabinete_object.nome %> | <%= @expo.cidade %> | Gabinete das Lembranças" property="og:title">
+  <% else %>
+    <meta property="og:description"  content="Colectivo Infinitos Monos | O Gabinete das Lembranças é uma exposição de objetos significativos e suas memórias. Cada exposição é fruto de uma residência de 10 dias em cada cidade envolvida. Nesse tempo a equipe coleta objetos e histórias entre os moradores que querem participar e serem parte da exposição." />
+    <meta content="Gabinete das Lembranças" property="og:title">
+  <% end %>
 <% end %>
 
 
@@ -25,8 +34,12 @@
     <% end %>
 
   <div class="jumbotron row">
+      <div id="historia" class="col-md-9">
+       <h3>  </h3>
+        <%=  simple_format(@gabinete_object.histories.first.memoria, class: "texto-interno") %>
+      </div>
     <% if !@imagem_cara.nil? %>
-      <div id="imgNome" class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>')no-repeat fixed; background-position: -206px center; height: 480; min-height:480px ">
+      <div id="imgNome" class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>')no-repeat fixed; background-position: 600px center; height: 480; min-height:480px ">
     <% else %>
       <div class="col-md-3"style="background-color: rgba(50,50,50, .2) ">
     <% end %>
@@ -45,10 +58,6 @@
       </br>
       </aside>
       </div>
-      <div id="historia" class="col-md-9">
-       <h3>  </h3>
-        <%=  simple_format(@gabinete_object.histories.first.memoria, class: "texto-interno") %>
-      </div>
    </div>
  </div>
 
@@ -56,6 +65,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3 col-xs-offset-5">
+      <h3 class="titulo-int"> <    Compartilha essa Lembrança   >  </h3>
       <% if !@imagem_portada.nil? %>
         <%= image_tag @imagem_portada.picture.url, hidden: true if @imagem_portada.picture? %>
         <%= social_share_button_tag("Moto Custom tipo photo", :image => @imagem_portada.picture.url , 'data-type' => 'photo') %>
@@ -120,16 +130,28 @@
 
 <script>
 $(document).on('ready page:load', function () {
+   var w = $(window).width();
+   var imagw = $("#imgNome").width();
+   var offsetP  = w - imagw - 120;
+   var offsetPixels = offsetP + 'px center';
+   $("#imgNome").css( 'background-position', offsetPixels );
+   var minM=w;
+   var maxM=0;
+
+
   // Actions to do
    var h = $("#historia").height();
    $("#imgNome").height(h);
    navigationFn.goToSection('#lembranca');
    $("#imgNome").mousemove(function( event ) {
      var mx = event.pageX ;
-     console.log("mx: " + mx);
-     var p = 1 - ( (mx - 60) / (366-60) );
-     p = 350 + (p * -350);
-     var bp = ( -p +'px  center');
+     if (mx < minM) minM = mx;
+     else if (mx > maxM) maxM = mx;
+
+     console.log("mx: " + mx + " OffsetP: "+ offsetP + " | MinM : " + minM + " maxM: " + maxM);
+     var p = 1 - ( (mx - minM) / (maxM-minM) );
+     p = offsetP - 60 + (p * -300);
+     var bp = ( p +'px  center');
      console.log("backgroundpos: " + bp); 
      $("#imgNome").css( 'background-position', bp  );
    });
