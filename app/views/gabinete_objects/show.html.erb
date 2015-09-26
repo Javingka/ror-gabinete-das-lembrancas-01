@@ -50,10 +50,10 @@
   <div class="row">
     <div class="col-xs-3 col-xs-offset-5">
       <% if !@imagem_portada.nil? %>
-      <%= social_share_button_tag("Moto Custom tipo photo", :'data-source' => @imagem_portada.picture.url , 'data-type' => 'photo') %>
-    <% end %>
-</div>
-</div>
+        <%= social_share_button_tag("Moto Custom tipo photo", :image => @imagem_portada.picture.url , 'data-type' => 'photo') %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <br>
 
