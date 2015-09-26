@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require soundmanager2
+//= require social-share-button
 //= require bootstrap
 //= require turbolinks
-//= require social-share-button
 //= require_tree .
