@@ -19,7 +19,7 @@
 
   <div class="jumbotron row">
     <% if !@imagem_cara.nil? %>
-      <div id="imgNome" class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>')no-repeat fixed; background-position: -206px center; height: 480; ">
+      <div id="imgNome" class="col-md-3"style="background: url('<%=@imagem_cara.picture.url %>')no-repeat fixed; background-position: -206px center; height: 480; min-height:480px ">
     <% else %>
       <div class="col-md-3"style="background-color: rgba(50,50,50, .2) ">
     <% end %>
@@ -107,8 +107,8 @@ $(document).on('ready page:load', function () {
    $("#imgNome").mousemove(function( event ) {
      var mx = event.pageX ;
      console.log("mx: " + mx);
-     var p = (mx - 60) / (366-60);
-     p = p * 412;
+     var p = 1 - (mx - 60) / (366-60);
+     p = p * - 308;
      var bp = ( -p +'px  center');
      console.log("backgroundpos: " + bp); 
      $("#imgNome").css( 'background-position', bp  );
