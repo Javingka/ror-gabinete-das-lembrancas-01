@@ -68,7 +68,7 @@
       <h3 class="titulo-int"> <    Compartilha essa Lembrança   >  </h3>
       <% if !@imagem_portada.nil? %>
         <%= image_tag @imagem_portada.picture.url, hidden: true if @imagem_portada.picture? %>
-        <%= social_share_button_tag("Moto Custom tipo photo", :image => @imagem_portada.picture.url , 'data-type' => 'photo') %>
+        <%= social_share_button_tag("#{@gabinete_object.nome}  | #{@expo.cidade} | Gabinete das Lembranças", :image => @imagem_portada.picture.url , 'data-type' => 'photo', 'data-twitter-title' => "#{@gabinete_object.nome}  | #{@expo.cidade} | Gabinete das Lembranças") %>
       <% end %>
     </div>
   </div>

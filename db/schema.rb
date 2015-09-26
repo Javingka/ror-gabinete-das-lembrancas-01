@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925233326) do
+ActiveRecord::Schema.define(version: 20150926230458) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comentario"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 20150925233326) do
     t.boolean  "public",      default: true
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "gabinete_objects", force: :cascade do |t|
     t.string  "nome"
     t.text    "descripcao"
@@ -44,10 +57,12 @@ ActiveRecord::Schema.define(version: 20150925233326) do
     t.string  "idade"
     t.integer "expo_ID"
     t.string  "audio_link"
+    t.string  "slug"
   end
 
   add_index "gabinete_objects", ["exhibit_id"], name: "index_gabinete_objects_on_exhibit_id"
   add_index "gabinete_objects", ["expo_ID"], name: "index_gabinete_objects_on_expo_ID", unique: true
+  add_index "gabinete_objects", ["slug"], name: "index_gabinete_objects_on_slug", unique: true
 
   create_table "histories", force: :cascade do |t|
     t.text     "memoria"

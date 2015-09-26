@@ -49,6 +49,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #To share on social networks
 gem 'social-share-button'
 
+#For the urls 
+gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
+
 # Gem para incluir audios no site com SoundManager 2 
 gem 'soundmanager2-rails'
 
