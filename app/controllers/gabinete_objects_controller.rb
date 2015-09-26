@@ -28,6 +28,7 @@ class GabineteObjectsController < ApplicationController
     @historia = @gabinete_object.histories.all
     @gabinete_object.photos.each do |ima|
       @imagem_portada = ima if ima.ocapa == true
+      @imagem_cara = ima if ima.cara == true
     end
   end
 

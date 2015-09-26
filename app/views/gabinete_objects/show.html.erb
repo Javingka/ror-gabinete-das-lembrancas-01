@@ -6,31 +6,35 @@
 <br>
 <div id="lembranca" class="container-fluid">
   <div class="jumbotron row">
-      <div class="col-md-3"style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; ">
+    <% if !@imagem_cara.nil? %>
+      <div class="col-md-3"style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat; background-position: center; ">
+    <% else %>
+      <div class="col-md-3"style="background-color: rgba(50,50,50, .8) ">
+    <% end %>
       <aside>
         <section class="user_info">
-          <h1 class="titulo"><%= @gabinete_object.pessoa %> </h1>
+          <h1 class="titulo" style="color: white"><%= @gabinete_object.pessoa %> </h1>
         </section>
         <section class="stats">
           <% if @gabinete_object.idade != '' %>
-            <h2 class="titulo-int"> <%= @gabinete_object.idade %> anos </h2>
+            <h2 class="titulo-int"style="color: white"> <%= @gabinete_object.idade %> anos </h2>
           <% end%>
         </section>
         <section>
-          <h3 class="titulo-int"> <%= @gabinete_object.nome %></h3>
+          <h3 class="titulo-int"style="color: white"> <%= @gabinete_object.nome %></h3>
         </section>
-        <hr>
       </br>
       <% if !@gabinete_object.audio_link.nil? %>
-      <h2 class="titulo-int"> Para <strong> OUVIR </strong> o depoimento. Click abaixo  </h2>
-          <div class="row" ><div class="col-xs-2 col-xs-offset-4">
+        <hr>
+      <h2 class="titulo-int"style="color: white;background-color: rgba(50,50,50, .8) "> Para <strong> OUVIR </strong> o depoimento. Click abaixo  </h2>
+          <div class="row"style="background-color: rgba(50,50,50, .3) " ><div class="col-xs-2 col-xs-offset-4">
           <div class="ui360" >
             <a href="<%= @gabinete_object.audio_link %>"  onClick="reply_click(this.id)" id= "playpause-<%= @gabinete_object.nome %>" >
             </a>
           </div>
         </div></div>
-    <% end %>
         <hr >
+    <% end %>
       </aside>
       </div>
       <div class="col-md-9">

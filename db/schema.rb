@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814222954) do
+ActiveRecord::Schema.define(version: 20150925233326) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comentario"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20150814222954) do
     t.boolean "cidade",             default: false
     t.boolean "natureza",           default: false
     t.boolean "coleta",             default: false
+    t.boolean "cara",               default: false
   end
 
   add_index "photos", ["exhibit_id"], name: "index_photos_on_exhibit_id"

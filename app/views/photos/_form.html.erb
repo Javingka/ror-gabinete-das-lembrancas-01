@@ -45,6 +45,9 @@
       <% if !@objeto.nil? %>
         <%= f.label :ocapa do %>
           <%= f.check_box :ocapa %> Check se é a imagem da capa do objeto?
+        <% end %> <br>
+        <%= f.label :cara do %>
+          <%= f.check_box :cara %> Check se é imagem da cara da pessoa
         <% end %>
       <% end %>
     </div>
