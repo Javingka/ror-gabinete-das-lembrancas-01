@@ -29,7 +29,12 @@
             <% exps = get_exposicoes %>
             <% exps.each do |exhibit| %>
               <% if exhibit.public %>
-                <li>  <%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get' %> </li>
+                <% if exhibit.cidade != "Rio de Contas" %>
+                  <li style="position: relative; margin-left: 10px">  <%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get' %>
+                  <span style="position: absolute; margin-right: 5px" class="glyphicon glyphicon-headphones" aria-hidden="true"></span> </li>
+                <% else %>
+                  <li style="margin-left: 10px">  <%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get' %></li>
+                <% end %>
               <% end %>
             <% end %>
           </ul>
