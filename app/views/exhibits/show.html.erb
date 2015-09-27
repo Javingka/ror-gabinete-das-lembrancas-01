@@ -128,7 +128,12 @@
 
 
         <% if !pic.nil? %>
+          <% if @gabinete_objects_all.count % 2 != 0 && index == @gabinete_objects_all.count-1 %>
+          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-12 " style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  max-height:330px"> <!-- background-size: 100%; -->'
+
+          <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-6" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  height:auto"> <!-- background-size: 100%; -->'
+          <% end %>
      <!--          <%= link_to image_tag( pic.url, width:'100%' ), gabinete_object %> -->
         <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-6" style="background-color: gray ">
