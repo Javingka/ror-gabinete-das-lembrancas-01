@@ -48,6 +48,20 @@
   <br>
 <% end %>
 
+<!-- SOCiAL NETWORKS -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3 col-xs-offset-5">
+      <% if !@imagem_portada.nil? %>
+        <h3 class="titulo-int"> <    Compartilha essa exposição   >  </h3>
+        <%= social_share_button_tag("#{@exhibit.cidade}  | Bahia | Exposição de objetos significativos", :image => @imagem_portada.picture.url , :'data-type' => 'photo', 'data-twitter-title' => "#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :via => "Javingka") %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+
+
 <!-- TITULO PARA MOSTRA DA EXPOSIÇÃO   -->  
 <div id="a-expo" class="about">
   <div class="container">
@@ -136,18 +150,6 @@
   </div>
 <br><br>
 </div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-3 col-xs-offset-5">
-      <% if !@imagem_portada.nil? %>
-        <h3 class="titulo-int"> <    Compartilha essa exposição   >  </h3>
-        <%= social_share_button_tag("#{@exhibit.cidade}  | Bahia | Exposição de objetos significativos", :image => @imagem_portada.picture.url , :'data-type' => 'photo', 'data-twitter-title' => "#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :via => "Javingka") %>
-      <% end %>
-    </div>
-  </div>
-</div>
-<br>
 
 <%= javascript_tag do %>
   var ig = $(".img-gal");
