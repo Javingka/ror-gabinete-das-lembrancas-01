@@ -24,7 +24,7 @@ class PhotosController < ApplicationController
       @photo = @exhibit.photos.build
     end
     if !params[:gabinete_object].nil?
-      @objeto = GabineteObject.find(params[:gabinete_object])
+      @objeto = GabineteObject.friendly.find(params[:gabinete_object])
       @photo = @objeto.photos.build
     end
   end
@@ -32,14 +32,14 @@ class PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @exhibit = Exhibit.find_by(id: @photo.exhibit_id)
-    @objeto = GabineteObject.find_by(id: @photo.gabinete_object_id)
+    @objeto = GabineteObject.friendly.find_by(id: @photo.gabinete_object_id)
   end
 
   # POST /photos
   # POST /photos.json
   def create
     if !params[:photo][:gabinete_object_id].nil?
-      @objeto = GabineteObject.find(params[:photo][:gabinete_object_id])
+      @objeto = GabineteObject.friendly.find(params[:photo][:gabinete_object_id])
       @photo = @objeto.photos.build(photo_params)
     end
     if !params[:photo][:exhibit_id].nil?
