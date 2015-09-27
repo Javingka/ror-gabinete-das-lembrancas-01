@@ -3,7 +3,7 @@
 <h1>Lista de Objetos</h1>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-10 col-md-offset-1">
     <table class="table">
       <thead>
         <tr>
@@ -29,14 +29,14 @@
             <td><%= gabinete_object.nome %></td>
             <td><%= gabinete_object.descripcao %></td>
             <td><%= link_to_if !exh.nil?, exh.cidade, exhibit_path(exh) , class: 'btn btn-link'%> </td>
-            <td><%= gabinete_object.photos.count %> </td>
-            <td><%= !gabinete_object.audio_link.blank? %> </td>
+            <td><%= gabinete_object.photos.count %> Imgs </td>
+            <td><%= !gabinete_object.audio_link.blank? ? 'c/audio' : 's/audio'  %> </td>
             <% fotoCara = '' %>
             <% gabinete_object.photos.each do |ima| %>
               <% ima.ocapa == true ? fotoCara = 'c/foto' : fotoCara = 's/foto' %>
             <% end %>
             <td><%= fotoCara %> </td>
-            <td><%= gabinete_object.histories.count %> </td>
+            <td><%= gabinete_object.histories.count hists %> </td>
             <td><%= gabinete_object.pessoa %> </td>
             <td><%= gabinete_object.idade %> </td>
             <td><%= link_to '+ foto', new_photo_path(:gabinete_object => gabinete_object, :exhibit => exh ), class:'btn btn-success' %> </td>
