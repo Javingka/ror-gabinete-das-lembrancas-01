@@ -101,11 +101,11 @@
   <div class="row">
     <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>  
         <% gabinete_object.photos.each do |ima| %>
-          <% @imagem_portada = ima if ima.ocapa == true %>
+          <% @imagem_portada_o = ima if ima.ocapa == true %>
         <%end%>
-        <% if !@imagem_portada.nil? %>
-          <% pic = @imagem_portada.picture  %>
-          <% @imagem_portada = nil %>
+        <% if !@imagem_portada_o.nil? %>
+          <% pic = @imagem_portada_o.picture  %>
+          <% @imagem_portada_o = nil %>
         <% else %>
           <% pic = gabinete_object.photos.first.picture if gabinete_object.photos.any?%>
         <% end %>
@@ -140,9 +140,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-3 col-xs-offset-5">
-      <h3 class="titulo-int"> <    Compartilha essa exposição   >  </h3>
       <% if !@imagem_portada.nil? %>
-        <%= social_share_button_tag("#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :image => @imagem_portada.picture.url , :'data-type' => 'photo', 'data-twitter-title' => "#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :via => "Javingka") %>
+        <h3 class="titulo-int"> <    Compartilha essa exposição   >  </h3>
+        <%= social_share_button_tag("#{@exhibit.cidade}  | Bahia | Exposição de objetos significativos", :image => @imagem_portada.picture.url , :'data-type' => 'photo', 'data-twitter-title' => "#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :via => "Javingka") %>
       <% end %>
     </div>
   </div>
