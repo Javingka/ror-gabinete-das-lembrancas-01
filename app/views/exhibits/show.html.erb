@@ -1,6 +1,6 @@
 <% content_for :meta_tags do %>
-  <% if !@imagem_portada.nil? %>
-    <meta property="og:image" content="<%=  @imagem_portada.picture.url %>" />
+  <% if !@fotos_exposicao.first.nil? %>
+    <meta property="og:image" content="<%=  @fotos_exposicao.first.picture.url %>" />
   <% end %>
 
   <% if !@exhibit.nil? %>
