@@ -33,10 +33,10 @@
             <td><%= !gabinete_object.audio_link.blank? ? 'c/audio' : 's/audio'  %> </td>
             <% fotoCara = '' %>
             <% gabinete_object.photos.each do |ima| %>
-              <% ima.ocara == true ? fotoCara = 'c/foto' : fotoCara = 's/foto' %>
+              <% ima.cara == true ? fotoCara = 'c/foto' : fotoCara = 's/foto' %>
             <% end %>
             <td><%= fotoCara %> </td>
-            <td><%= gabinete_object.histories.count hists %> </td>
+            <td><%= gabinete_object.histories.count %>  hists</td>
             <td><%= gabinete_object.pessoa %> </td>
             <td><%= gabinete_object.idade %> </td>
             <td><%= link_to '+ foto', new_photo_path(:gabinete_object => gabinete_object, :exhibit => exh ), class:'btn btn-success' %> </td>
