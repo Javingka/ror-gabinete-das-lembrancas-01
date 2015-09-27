@@ -1,3 +1,17 @@
+<% content_for :meta_tags do %>
+  <% if !@imagem_portada.nil? %>
+    <meta property="og:image" content="<%=  @imagem_portada.picture.url %>" />
+  <% end %>
+
+  <% if !@exhibit.nil? %>
+    <meta property="og:description"  content=" do <%= @exhibit.datainicio %> à <%= @exhibit.datafim %> | <%= @exhibit.local %> " />
+    <meta content="<%= @exhibit.cidade.upcase %> | Exposição de Objetos significativos | Gabinete das Lembranças" property="og:title">
+  <% else %>
+    <meta property="og:description"  content="Colectivo Infinitos Monos | O Gabinete das Lembranças é uma exposição de objetos significativos e suas memórias. Cada exposição é fruto de uma residência de 10 dias em cada cidade envolvida. Nesse tempo a equipe coleta objetos e histórias entre os moradores que querem participar e serem parte da exposição." />
+    <meta content="Gabinete das Lembranças" property="og:title">
+  <% end %>
+<% end %>
+
 <!-- IMAGEM DE INICIO -->
  <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
   <div class="espaco-imagem"> 
@@ -122,6 +136,18 @@
   </div>
 <br><br>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3 col-xs-offset-5">
+      <h3 class="titulo-int"> <    Compartilha essa exposição   >  </h3>
+      <% if !@imagem_portada.nil? %>
+        <%= social_share_button_tag("#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :image => @imagem_portada.picture.url , :'data-type' => 'photo', 'data-twitter-title' => "#{@exhibit.cidade}  | Bahia | Gabinete das Lembranças", :via => "Javingka") %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
 
 <%= javascript_tag do %>
   var ig = $(".img-gal");
