@@ -25,11 +25,12 @@
 <div class="container-fluid">
       <% if !@gabinete_object.audio_link.nil? %>
         <hr>
-          <div class="row" ><div class="col-xs-3 col-xs-offset-6">
+          <div class="row" ><div class="col-xs-3 col-xs-offset-5">
           <div class="ui360 ui360-viz" >
             <a href="<%= @gabinete_object.audio_link %>"  onClick="reply_click(this.id)" id= "playpause-<%= @gabinete_object.nome %>" >
               <p class="titulo-int center" style="margin-left: 10px"><strong>    OUVIR </strong>Depoimento.</p>
             </a>
+            <span style="position: absolute; margin:18px 0 0 10px" class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
           </div>
         </div></div>
         <hr >
