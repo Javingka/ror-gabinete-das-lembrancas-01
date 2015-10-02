@@ -6,8 +6,9 @@
       <source src="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/videos/morro_web1.ogv" type="video/ogg"/>
       <source src="https://s3-sa-east-1.amazonaws.com/gabinete-lembrancas/videos/morro_web1.webm" type="video/webm"/>
       Your browser does not support the video tag. I suggest you upgrade your browser.
-    </video> 
+    </video>
   </div> <!--  end video-container -->
+
   <!-- LOGO sobre el video -->
   <div class="row">
     <div class="logo-over-video col-md-4 col-md-offset-8">
@@ -20,21 +21,60 @@
   </div>
 </div> <!-- end .header-unit -->
 
-<br>
-
-<div style="background-image: url(<%= asset_path('ACBEU_INFINITOS_CARD_FACEBOOK_CORRIGIDO.jpg')%> );  background-repeat: no-repeat;  background-position: center;  height: 900px">
+<!-- directLinks to the exhibits -->
+<div class="container" id="exh">
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="page-header text-center">
+      <h1 class='titulo'> Gabinete das Lembranças </h1>
     </div>
+
+    <p class="lead text-center" style="font-family: 'Museo500'">
+      Exposição de Objetos Significativos
+    </p>
+
+    <hr>
+
+    <div class="divider"></div>
+
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="row centered">
+    <% @exhibits.each do |exhibit| %>
+    <div class="col-md-3">
+      <i class="fa fa-heart-o"></i>
+        <% @imagem_p = exhibit.photos.first if !exhibit.photos.first.nil? %>
+        <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_p.picture.url if !@imagem_p.nil? %>')
+           no-repeat center center fixed; background-position: center;  max-height:300px">
+        <% if exhibit.cidade != "Rio de Contas" %>
+          <p style="position: relative; margin: -10px 0 0 10px;">
+          <span style="position: absolute; margin:2px 5px 0 0" class="glyphicon glyphicon-headphones" aria-hidden="true">
+          </span>
+          </p>
+        <% end %>
+        </div>
+          <p><br/><%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get', class: "btn btn-theme" %></p>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+
+<!-- cartaz
+<div style="background-image: url(<%= asset_path('ACBEU_INFINITOS_CARD_FACEBOOK_CORRIGIDO.jpg')%> );  background-repeat: no-repeat;  background-position: center;  height: 900px">  </div>
+-->
 
 <!-- ACERCA DO PROJETO  -->
 <section id="projeto" >
   <div class="container">
     <div class="row">
       <div class='col-md-10 col-md-offset-1'>
-        <h1 class='titulo'> Gabinete das Lembranças </h1>
-
+        <br>
         <br>
 
-      <p class="titulo-int" >O Gabinete das Lembranças é uma exposição de objetos significativos e suas memórias. O projeto nasce em 2013 e teve sua primeira edição em Rio de Contas, no marco do Festival Rua dos Inventos. Entre abril e junho de 2015, com financiamento da Secretaria de Cultura do Estado da Bahia, SECULT-BA, edital Territórios Culturais, serão feitas mais três exposições em Morro do Chapéu, Andaraí e Palmeiras.</p>
+      <p class="titulo-int" >O Gabinete das Lembranças é uma exposição de objetos significativos e suas memórias.
+         O projeto nasce em 2013 e teve sua primeira edição em Rio de Contas, no marco do Festival Rua dos Inventos. Entre abril e junho de 2015, com financiamento da Secretaria de Cultura do Estado da Bahia, SECULT-BA, edital Territórios Culturais, serão feitas mais três exposições em Morro do Chapéu, Andaraí e Palmeiras.</p>
       <p class="titulo-int">Cada exposição é fruto de uma residência de 10 dias em cada cidade envolvida. Nesse tempo a equipe coleta objetos e histórias entre os moradores que querem participar e serem parte da exposição. No final da residência, os objetos são devolvidos a seus donos. Uma vez finalizadas todas as exposições se fará um DVD documentário do projeto completo.</p>
       <p class="titulo-int">Nosso projeto expositivo busca resgatar as histórias pessoais como fonte de identidade individual e comunitária. Por meio da escolha e compartilhamento de um objeto significativo e sua história, o projeto valoriza a história invisível, pessoal, memória historicamente silenciada que não aparece nos livros didáticos e desvalorizada pela mídia. Os objetos são objetos de memória, trazem consigo traços além de sua materialidade, ele poderá conter acontecimentos, lembranças intimas, mas que muitas vezes estão relacionadas às memórias coletivas da comunidade em questão. Desde a memória individual se mobiliza a memória coletiva, criando-se um relato comum, de histórias que se repetem em diferentes famílias, numa mesma cidade.  </p>
       <p class="titulo-int">A experiência se produz desde duas perspectivas: desde quem lembra e desde quem assiste as lembranças do outro. Quem lembra é invitado a olhar seu passado, a fazer um ato consciente de memória e escolher o que deseja compartilhar e reviver no presente. Quem assiste descobre um valor no objeto que vá para além da materialidade e que tem sido dado pela experiência de outra pessoa e faz associações das histórias com sua própria vida. Questiona-se também o conceito de exposição, já que não centra seu olhar no objeto a ser exposto, se não no conteúdo que possui, exaltando seu valor simbólico, sua imaterialidade no lugar de seu valor tangível, material. </p>
@@ -111,4 +151,17 @@
   </div>
 </div>
 
+<script>
+  $(document).on('ready page:load', function () {
+    // Actions to do
+    navigationFn.goToSection('#exh');
+  });
 
+  var navigationFn = {
+    goToSection: function(id) {
+    $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 2000);
+    }
+  }
+</script>
