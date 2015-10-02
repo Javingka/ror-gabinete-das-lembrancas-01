@@ -12,8 +12,6 @@ class StaticPagesController < ApplicationController
     @gabinete_objects = GabineteObject.all
     @gabinete_objects_chapada = Array.new
 
-
-
     @gabinete_objects.each do |o|
       expo = Exhibit.find_by(id: o.exhibit_id)
       if expo.cidade != "Rio de Contas" && !o.expo_ID.blank?

@@ -17,7 +17,9 @@
   </div>
   <div class="row">
     <div class="center col-md-4 col-md-offset-4" style="margin-top:80px">
-      <p><br/><a href="#exh" class="btn btn-theme page-scroll" style="color: #fff">ver mais</a></p>
+      <p><br/><a href="#exh" class="btn btn-theme page-scroll"
+        style="color: #fff;background-color: rgba(0,0,0,.5); margin-top: 5px; margin-bottom: 20px;
+         border-color: #999">ver mais</a></p>
     </div>
   </div>
 </div> <!-- end .header-unit -->
@@ -48,11 +50,11 @@
       <i class="fa fa-heart-o"></i>
         <% @imagem_p = exhibit.photos.first if !exhibit.photos.first.nil? %>
         <%  exhibit.photos.each do |ima| %>
-          <% @foto_expo = ima if ima.ecapa == true %>
+          <% @foto_expo = ima if ima.expo == true %>
           <% next if @foto_expo != nil %>
         <% end %>
         <div id="inicio-pag" class="expo-ini" style="background: url('<%= @foto_expo.picture.url if !@foto_expo.nil? %>')
-           no-repeat center center fixed; background-position: center;  max-height:300px">
+           no-repeat center center fixed; background-position: center;  max-height:300px; border-radius:150px">
           <p style="position: relative">
         <% if exhibit.cidade != "Rio de Contas" %>
           <span style="position: absolute; margin:2px 5px 0 0" class="glyphicon glyphicon-headphones" aria-hidden="true">
@@ -60,7 +62,8 @@
         <% end %>
           </p>
         </div>
-        <p><br/><%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get', class: "btn btn-ini"%></p>
+        <p><br/><%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get', class: "btn btn-ini",
+        style:"color: #fff;background-color: rgba(0,0,0,.9); margin-top: 5px; margin-bottom: 20px; border-color: #999" %></p>
     </div>
     <% end %>
 

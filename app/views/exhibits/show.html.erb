@@ -13,13 +13,13 @@
 <% end %>
 
 <!-- IMAGEM DE INICIO -->
- <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; "> 
-  <div class="espaco-imagem"> 
+ <div id="inicio-pag" class="expo-ini" style="background: url('<%=@imagem_portada.picture.url if !@imagem_portada.nil? %>') no-repeat center center fixed; ">
+  <div class="espaco-imagem">
   <h1> </h1>
   </div>
 </div>
 
-<!-- INFO DA CIDADE --> 
+<!-- INFO DA CIDADE -->
 <div id="cidade" class="about">
   <div class="container">
     <div class="row">
@@ -42,7 +42,7 @@
 
 <!-- VIDEO -->
 <% if !@exhibit.video_src.blank? %>
-    <div class='myIframe' id="video-expo" > 
+    <div class='myIframe' id="video-expo" >
       <iframe src="<%=@exhibit.video_src %>" frameborder="0" allowfullscreen></iframe>
     </div>
   <br>
@@ -62,7 +62,7 @@
 <br>
 
 
-<!-- TITULO PARA MOSTRA DA EXPOSIÇÃO   -->  
+<!-- TITULO PARA MOSTRA DA EXPOSIÇÃO   -->
 <div id="a-expo" class="about">
   <div class="container">
     <div class="row">
@@ -78,7 +78,7 @@
   <div id="mycarousel" class="carousel slide" data-ride="carousel">
     <!-- indicators -->
     <ol class="carousel-indicators">
-      <% @fotos_exposicao.count.times do |index| %> 
+      <% @fotos_exposicao.count.times do |index| %>
         <% if index == 0 %>
           <li data-target="#mycarousel" data-slide-to=<%= index %> class='active' ></li>
         <% else %>
@@ -87,7 +87,7 @@
       <% end %>
     </ol>
     <div class="carousel-inner" role="listbox">
-      <% @fotos_exposicao.each_with_index do |f, index| %>  
+      <% @fotos_exposicao.each_with_index do |f, index| %>
         <% if index == 0 %>
           <div class="item active">
         <% else %>
@@ -110,10 +110,10 @@
 
 <!-- GALERIA NOVA -->
 <h2 class="titulo-int " style="text-align: center">OBJETOS E SUAS HISTÓRIAS </h2>
-<div id="galeria-obj" class="container-fluid" > 
+<div id="galeria-obj" class="container-fluid" >
   <% if @gabinete_objects_all.any? %>
   <div class="row">
-    <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>  
+    <% @gabinete_objects_all.each_with_index do |gabinete_object, index| %>
         <% gabinete_object.photos.each do |ima| %>
           <% @imagem_portada_o = ima if ima.ocapa == true %>
         <%end%>
@@ -132,20 +132,26 @@
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-12 " style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  max-height:330px"> <!-- background-size: 100%; -->'
 
           <% else %>
-          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-6" style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;  height:auto"> <!-- background-size: 100%; -->'
+          <div id ="gal-obj_<%= index %>" class="img-gal col-xs-12 col-sm-6 col-md-6"
+             style="background-image: url(<%= pic.url %>);  background-repeat: no-repeat;  background-position: center;
+             height:auto"> <!-- background-size: 100%; -->'
           <% end %>
      <!--          <%= link_to image_tag( pic.url, width:'100%' ), gabinete_object %> -->
         <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-6" style="background-color: gray ">
         <% end %>
-          <div id ="info-obj_<%= index %>" class="preview-objeto" style="visibility: hidden; background-color: rgba(0,0,0,.7); round:10px">
-            <h3 class="titulo-int" style="color: rgb(220,220,220); text-align: center; margin-top: 5px" > <strong> <%= gabinete_object.nome.upcase %> </strong> </h3>
+          <div id ="info-obj_<%= index %>" class="preview-objeto" style="
+            background-color: rgba(0,0,0,.7); round:10px">
+            <h3 class="titulo-int" style="color: rgb(220,220,220); text-align: center; margin-top: 5px" >
+               <strong> <%= gabinete_object.nome.upcase %> </strong> </h3>
             <h4 class="titulo-int" style="color: rgb(200,200,200); text-align: center" > <%= gabinete_object.pessoa %> |
             <%= gabinete_object.idade %> anos </h4>
-            <p class="his-preview texto-interno" style="color: white; font-size:15px; margin: 5px" > <i> <%= his if !his.nil? %></i> </p>
+            <p class="his-preview texto-interno" style="color: white; font-size:15px; margin: 5px" >
+               <i> <%= his if !his.nil? %></i> </p>
             <div class="row">
             <div class="col-xs-8 col-xs-offset-2" >
-              <%= link_to 'MAIS', gabinete_object, class:'btn btn-primary titulo-int', method:'get', style:"color: #fff;background-color: rgba(0,0,0,.9); margin-top: 5px; margin-bottom: 20px; border-color: #999 " %>
+              <%= link_to 'ver mais', gabinete_object, class:'btn btn-primary titulo-int', method:'get',
+               style:"color: #fff;background-color: rgba(0,0,0,.9); margin-top: 5px; margin-bottom: 20px; border-color: #999 " %>
             </div>
             </div>
           </div>
@@ -175,12 +181,12 @@
       document.getElementById(id_o).style.visibility = "visible";
 
     //   $(id_o).css('visibility', 'hidden');
- //   alert (visibilidad ); 
+ //   alert (visibilidad );
   });
   $(".img-gal").mouseenter( function (event) {
 
   });
-  
+
 <% end %>
 
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
@@ -224,7 +230,7 @@
 
 <div id="links">
   <% @fotos_montagem.each do |f| %>
- 
+
     <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="background-image: url(<%= f.picture.url %>);  background-repeat: no-repeat;  background-position: center; background-size: 180%;  height:auto">
       <a href="<%= f.picture.url %>" style="background-color: transparent; height:150px; border-style: none" class= "thumbnail" title=" " data-gallery>
       </a>
@@ -253,7 +259,7 @@
 
 <div id='comentarios' class='jumbotorn'>
   <h1 class='titulo-int'> LIVRO DE VISITAS </h1>
-  
+
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <table class="table">
@@ -296,7 +302,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-2 col-md-offset-5 ">
-        <p> 
+        <p>
           <!-- (         <%= "#{@exhibit.impressionist_count(:filter=>:session_hash)} visitas" %>)  -->
         </p>
     </div>
