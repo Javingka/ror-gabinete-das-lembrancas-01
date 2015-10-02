@@ -1,5 +1,5 @@
 
-/* Social share buttons sizes */ 
+/* Social share buttons sizes */
 .social-share-button-facebook {
     display: inline-block;
     width: 32px;
@@ -54,4 +54,20 @@
     width: 32px;
     height: 32px;
     background: image-url("social-share-button/pinterest.png") no-repeat;
+}
+// Button initial
+.btn-ini {
+  color: #fff;
+  background-color: #384452;
+  border-color: #384452;
+  margin: 4px;
+}
+.btn-ini:hover,
+.btn-ini:focus,
+.btn-ini:active,
+.btn-ini.active,
+.open .dropdown-toggle.btn-ini {
+  color: #fff;
+  background-color: #00b3fe;
+  border-color: #00b3fe;
 }

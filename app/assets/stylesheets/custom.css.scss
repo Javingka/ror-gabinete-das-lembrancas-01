@@ -374,20 +374,3 @@ left: 0;
 width: 100%;
 height: 80%;
 }
-
-// Button initial
-.btn-theme {
-  color: #fff;
-  background-color: #384452;
-  border-color: #384452;
-  margin: 4px;
-}
-.btn-theme:hover,
-.btn-theme:focus,
-.btn-theme:active,
-.btn-theme.active,
-.open .dropdown-toggle.btn-theme {
-  color: #fff;
-  background-color: #00b3fe;
-  border-color: #00b3fe;
-}
