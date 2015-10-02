@@ -140,8 +140,8 @@
         <% else %>
           <div id ="gal-obj_<%= index %>" class="img-gal col-xs-6 col-md-6" style="background-color: gray ">
         <% end %>
-          <div id ="info-obj_<%= index %>" class="preview-objeto" style="
-            background-color: rgba(0,0,0,.7); round:10px">
+        <!-- Texto sobre a imagem com história -->
+          <div id ="info-obj_<%= index %>" class="preview-objeto" style="background-color: rgba(0,0,0,.7); visibility: hidden; border-radius:50px">
             <h3 class="titulo-int" style="color: rgb(220,220,220); text-align: center; margin-top: 5px" >
                <strong> <%= gabinete_object.nome.upcase %> </strong> </h3>
             <h4 class="titulo-int" style="color: rgb(200,200,200); text-align: center" > <%= gabinete_object.pessoa %> |
@@ -169,8 +169,7 @@
 //  alert ("w" + w);
   ig.css('height', w);
 
-  $(".img-gal").click( function (event) {
-//    alert(event.target.id);
+  $(".img-gal").hover( function (event) {
     var numberOut = /[0-9]+/; //tw tiene el formato: 000px, con el número seguido de 'px'
     var id = numberOut.exec(event.target.id); //nos quedamos solo con los números
     var id_o = "info-obj_"+id;
@@ -179,10 +178,17 @@
       document.getElementById(id_o).style.visibility = "hidden";
     else
       document.getElementById(id_o).style.visibility = "visible";
-
-    //   $(id_o).css('visibility', 'hidden');
- //   alert (visibilidad );
-  });
+    },  function (event) {
+    var numberOut = /[0-9]+/; //tw tiene el formato: 000px, con el número seguido de 'px'
+    var id = numberOut.exec(event.target.id); //nos quedamos solo con los números
+    var id_o = "info-obj_"+id;
+    var visibilidad = document.getElementById(id_o).style.visibility;
+    if (visibilidad == 'visible')
+      document.getElementById(id_o).style.visibility = "hidden";
+    else
+      document.getElementById(id_o).style.visibility = "visible";
+  }
+  );
   $(".img-gal").mouseenter( function (event) {
 
   });
