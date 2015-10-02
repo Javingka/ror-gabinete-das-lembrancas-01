@@ -174,19 +174,19 @@
     var id = numberOut.exec(event.target.id); //nos quedamos solo con los números
     var id_o = "info-obj_"+id;
     var visibilidad = document.getElementById(id_o).style.visibility;
-    if (visibilidad == 'visible')
-      document.getElementById(id_o).style.visibility = "hidden";
-    else
+//    if (visibilidad == 'visible')
+//      document.getElementById(id_o).style.visibility = "hidden";
+//    else
       document.getElementById(id_o).style.visibility = "visible";
     },  function (event) {
     var numberOut = /[0-9]+/; //tw tiene el formato: 000px, con el número seguido de 'px'
     var id = numberOut.exec(event.target.id); //nos quedamos solo con los números
     var id_o = "info-obj_"+id;
     var visibilidad = document.getElementById(id_o).style.visibility;
-    if (visibilidad == 'visible')
+//    if (visibilidad == 'visible')
       document.getElementById(id_o).style.visibility = "hidden";
-    else
-      document.getElementById(id_o).style.visibility = "visible";
+//    else
+//      document.getElementById(id_o).style.visibility = "visible";
   }
   );
   $(".img-gal").mouseenter( function (event) {
