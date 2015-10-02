@@ -48,7 +48,7 @@
       <i class="fa fa-heart-o"></i>
         <% @imagem_p = exhibit.photos.first if !exhibit.photos.first.nil? %>
         <%  exhibit.photos.each do |ima| %>
-          <% @foto_expo = ima if ima.expo == true %>
+          <% @foto_expo = ima if ima.ecapa == true %>
           <% next if @foto_expo != nil %>
         <% end %>
         <div id="inicio-pag" class="expo-ini" style="background: url('<%= @foto_expo.picture.url if !@foto_expo.nil? %>')
