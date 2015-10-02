@@ -53,15 +53,14 @@
         <% end %>
         <div id="inicio-pag" class="expo-ini" style="background: url('<%= @foto_expo.picture.url if !@foto_expo.nil? %>')
            no-repeat center center fixed; background-position: center;  max-height:300px">
+          <p style="position: relative">
         <% if exhibit.cidade != "Rio de Contas" %>
-          <p style="position: relative; margin: -10px 0 0 10px;">
           <span style="position: absolute; margin:2px 5px 0 0" class="glyphicon glyphicon-headphones" aria-hidden="true">
           </span>
-          </p>
         <% end %>
+          </p>
         </div>
-          <p><br/><%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get', class: "btn btn-theme",
-          style:"color:#fff" %></p>
+        <p><br/><%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get', class: "btn btn-theme"%></p>
     </div>
     <% end %>
 
