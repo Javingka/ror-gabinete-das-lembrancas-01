@@ -102,7 +102,8 @@
               <p class="center" style="color: 'yellow'; font-family: 'Alpaca'; font-size: 25px;
               margin-top: 15px;height: 50px ">
 <!--                 <%= letra+" "+ gabinete_object.expo_ID.to_s %> </p> -->
-                 <%= @expo.cidade.upcase %> </p>
+             <%= link_to  @expo.cidade.upcase , @expo, class:'btn btn-ini', method: 'get', style:"color: '#ff0';
+             font-family: 'Alpaca'; font-size: 30px; margin-top: 0px; " %>
                <p>
            </div>
            <div class="col-xs-4 " style="">
