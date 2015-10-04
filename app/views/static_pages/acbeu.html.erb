@@ -96,8 +96,8 @@
         <div onClick="reply_click(this.id)" id="<%= gabinete_object.nome %>" class="row">
           <div class="col-xs-4 " style=" background-color: rgba(0,0,0,.5)">
           </div>
-          <div class="col-xs-4 "style=" background-color: rgba(0,0,0,.9)">
-             <%= link_to 'ver mais de ' +gabinete_object.nome, gabinete_object, class:'btn btn-theme', method: 'get', style:"color: '#ff0';
+          <div class="col-xs-4 "style=" background-color: rgba(0,0,0,.9); color: '#ff0'">
+             <%= link_to gabinete_object.nome, gabinete_object, class:'btn btn-ini', method: 'get', style:"color: '#ff0';
              font-family: 'Alpaca'; font-size: 30px; margin-top: 30px; " %>
               <p class="center" style="color: 'yellow'; font-family: 'Alpaca'; font-size: 25px;
               margin-top: 15px;height: 50px ">
