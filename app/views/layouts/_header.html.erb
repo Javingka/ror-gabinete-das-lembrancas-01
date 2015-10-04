@@ -41,7 +41,7 @@
         </li>
 
         <% if current_page? (root_path) %>
-          <li class="texto-menu"><%= link_to "DEPOIMENTOS", "/depoimentos" , class:"page-scroll" %></li>
+          <li class="texto-menu"><%= link_to "DEPOIMENTOS", "/depoimentos" , class:"page-scroll", method:'get' %></li>
         <% end %>
 
           </ul>
