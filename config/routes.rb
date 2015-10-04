@@ -35,6 +35,6 @@ Rails.application.routes.draw do
   get 'static_pages/monos'
   get 'static_pages/show_exp'
   get 'static_pages/acbeu'
-  match "/acbeu" => "static_pages#acbeu", via: :get
+  match "/depoimentos" => "static_pages#acbeu", via: :get
 
 end

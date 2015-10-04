@@ -58,10 +58,6 @@
         <div id="inicio-pag" class="expo-ini" style="background: url('<%= @foto_expo.picture.url if !@foto_expo.nil? %>')
            no-repeat center center fixed; background-position: center;  max-height:300px; border-radius:150px">
           <p style="position: relative">
-        <% if exhibit.cidade != "Rio de Contas" %>
-          <span style="position: absolute; margin:2px 5px 0 0" class="glyphicon glyphicon-headphones" aria-hidden="true">
-          </span>
-        <% end %>
           </p>
         </div>
         <p><br/><%= link_to exhibit.cidade, exhibit_path(exhibit)+'#inicio-pag', method: 'get', class: "btn btn-ini",
