@@ -9,7 +9,7 @@ gem 'bcrypt',               '3.1.7'
 # to make sample users with semi-realistic names and email addresses
 gem 'faker',                '1.4.2'
 
-# to include images in the user's microposts 
+# to include images in the user's microposts
 gem 'carrierwave',             '0.10.0'
 gem 'mini_magick',             '3.8.0'
 gem 'fog',                     '1.23.0'
@@ -34,7 +34,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails', '4.0.3' 
+gem 'jquery-rails', '4.0.3'
 
 # https://github.com/JohnColvin/jquery-scrollto-rails
 gem "jquery-scrollto-rails"
@@ -49,11 +49,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #To share on social networks
 gem 'social-share-button'
 
-#For the urls 
+#For the urls
 gem 'friendly_id', '~> 5.1.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 
-# Gem para incluir audios no site com SoundManager 2 
+# Gem para incluir audios no site com SoundManager 2
 gem 'soundmanager2-rails'
+
+# Gem for contact form
+gem 'mail_form'
+gem 'simple_form'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
@@ -73,4 +77,3 @@ group :production do
   gem 'rails_12factor', '0.0.2'
   gem 'puma',           '2.11.1'
 end
-

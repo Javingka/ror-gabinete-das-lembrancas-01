@@ -37,4 +37,7 @@ Rails.application.routes.draw do
   get 'static_pages/acbeu'
   match "/depoimentos" => "static_pages#acbeu", via: :get
 
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
 end
