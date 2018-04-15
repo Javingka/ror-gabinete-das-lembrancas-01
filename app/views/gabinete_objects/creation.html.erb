@@ -13,6 +13,7 @@
           <th> <%= link_to 'Exposiçoes', creation_exhibits_path, class: 'btn btn-default' %></th>
           <th>Numero de fotos</th>
           <th>Tem áudio?</th>
+          <th>Tem vídeo?</th>
           <th>Tem imagem Rostro </th>
           <th>Nde memorias</th>
           <th>Dono(a)</th>
@@ -31,6 +32,7 @@
             <td><%= link_to_if !exh.nil?, exh.cidade, exhibit_path(exh) , class: 'btn btn-link'%> </td>
             <td><%= gabinete_object.photos.count %> Imgs </td>
             <td><%= !gabinete_object.audio_link.blank? ? 'c/audio' : 's/audio'  %> </td>
+            <td><%= !gabinete_object.video_link.blank? ? 'c/audio' : 's/audio'  %> </td>
             <% fotoCara = '' %>
             <% gabinete_object.photos.each do |ima| %>
               <% ima.cara == true ? fotoCara = 'c/foto' : fotoCara = 's/foto' %>

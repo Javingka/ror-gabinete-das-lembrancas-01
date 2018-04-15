@@ -93,6 +93,6 @@ class GabineteObjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gabinete_object_params
-      params.require(:gabinete_object).permit(:nome, :descripcao, :pessoa, :idade, :expo_ID, :audio_link )
+      params.require(:gabinete_object).permit(:nome, :descripcao, :pessoa, :idade, :expo_ID, :audio_link, :video_src )
     end
 end

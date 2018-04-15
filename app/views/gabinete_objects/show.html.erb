@@ -23,6 +23,12 @@
 <div id="lembranca" class="container-fluid"></div>
 <br >
 <div class="container-fluid">
+      <% if !@gabinete_object.video_link.blank? %>
+          <div class='myIframe' id="video-expo" >
+            <iframe src="<%=@gabinete_object.video_link %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        <br>
+      <% end %>
       <% if !@gabinete_object.audio_link.nil? %>
         <hr>
           <div class="row" ><div class="col-xs-3 col-xs-offset-5">

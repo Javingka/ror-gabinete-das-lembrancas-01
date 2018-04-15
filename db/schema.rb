@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150926230458) do
+ActiveRecord::Schema.define(version: 20180415182447) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "comentario"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20150926230458) do
     t.integer "expo_ID"
     t.string  "audio_link"
     t.string  "slug"
+    t.string  "video_link"
   end
 
   add_index "gabinete_objects", ["exhibit_id"], name: "index_gabinete_objects_on_exhibit_id"
